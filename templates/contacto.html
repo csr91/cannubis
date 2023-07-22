@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contacto - Cannubis Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('/static/images/back.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      width: 800px;
+      margin: 0 auto;
+      padding: 110px;
+      background-color: rgba(0, 0, 0, 0.2); /* Transparencia del fondo */
+    }
+    .form-container {
+      float: left;
+      width: 50%;
+    }
+    .image-container {
+      float: right;
+      width: 50%;
+      text-align: center;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .form-container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2>Contacto</h2>
+      <form action="process_form.php" method="post">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="asunto" placeholder="Asunto" required>
+        <textarea name="mensaje" placeholder="Mensaje" rows="6" required></textarea>
+        <input type="submit" value="Enviar">
+      </form>
+    </div>
+    <div class="image-container">
+      <img src="/static/images/contacto.jpg" alt="Contacto" width="300">
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+</body>
+</html>

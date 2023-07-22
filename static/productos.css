@@ -1,0 +1,110 @@
+/* Estilos para el encabezado */
+header {
+  background-color: #8a9a5b;
+  padding: 10px;
+}
+
+/* Estilos para los elementos del encabezado */
+.inicio,
+.barra-busqueda,
+.consulta-pago {
+  margin-right: 10px;
+  background-color: #d4ccb1;
+  color: #4c532e;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+/* Estilos para la sección de categorías */
+.categorias {
+  width: 20%;
+  height: 100vh;
+  float: left;
+  background-color: #495f34;
+  padding: 10px;
+}
+
+/* Estilos para los elementos de la lista de categorías */
+.categorias ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.categorias li {
+  margin-bottom: 5px;
+  color: #ffffff;
+  position: relative; /* Agregamos posición relativa */
+}
+
+/* Estilos para la sección de categorías */
+.categorias {
+  width: 20%;
+  height: 100vh;
+  float: left;
+  background-color: #68755c;
+  padding: 10px;
+}
+
+.categorias .v-icon {
+  position: right;
+  margin-left: 5px; /* Ajusta el margen según tus necesidades */
+  width: 12px; /* Ajusta el ancho automáticamente según el tamaño del icono */
+  height: 2%; /* Ajusta la altura al 100% para que coincida con el texto */
+}
+  
+.productos {
+  width: 75%;                      /* Ancho del contenedor de productos */
+  background-color: #ebebeb;       /* Color de fondo */
+  height: 100vh;                   /* Altura del contenedor de productos */
+  margin-left: 25px;               /* Margen izquierdo */
+  overflow-y: scroll;              /* Scroll vertical */
+  display: grid;                   /* Uso de CSS Grid para la disposición de elementos */
+  grid-template-columns: repeat(4, 1fr);  /* Cuatro columnas iguales */
+  gap: 10px;                       /* Espacio entre los elementos */
+  padding: 10px;                   /* Espacio interno del contenedor */
+}
+
+.recuadros {
+  display: grid;                   /* Uso de CSS Grid para la disposición de elementos */
+  grid-template-columns: repeat(4, 1fr);  /* Cuatro columnas iguales */
+  gap: 10px;                       /* Espacio entre los elementos */
+  margin-left: calc((100vw - 1536px) / 2);  /* Cálculo del margen izquierdo relativo */
+}
+
+.producto {
+  display: flex;                   /* Uso de flexbox para la disposición de elementos internos */
+  flex-direction: column;          /* Dirección de flexbox: columna */
+  padding: 95px;                   /* Espacio interno del producto */
+  border: 2px solid #ccc;          /* Borde del producto */
+  border-radius: 5px;              /* Radio de borde del producto */
+}
+
+.producto img {
+  width: 100%;                     /* Ancho de la imagen del producto al 100% */
+  max-height: 200px;               /* Altura máxima de la imagen */
+  object-fit: cover;               /* Ajuste de la imagen al contenedor */
+  margin-bottom: 10px;             /* Margen inferior de la imagen */
+}
+
+.producto h3 {
+  margin-bottom: 5px;              /* Margen inferior del título del producto */
+}
+
+.producto button {
+  background-color: #007bff;       /* Color de fondo del botón */
+  color: #fff;                     /* Color del texto del botón */
+  padding: 5px 10px;               /* Espacio interno del botón */
+  border: none;                    /* Sin borde en el botón */
+  border-radius: 5px;              /* Radio de borde del botón */
+  cursor: pointer;                 /* Cambio de cursor al pasar por encima del botón */
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+}

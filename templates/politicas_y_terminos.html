@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <a id="volverButton" href="/">Volver</a>
+  <title>Términos y Condiciones de Cannubis.store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      margin-bottom: 10px;
+    }
+    
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Términos y Condiciones de la Tienda Cannubis.store</h1>
+  
+  <p>Bienvenido/a a nuestra tienda de comercio electrónico. Antes de realizar una compra, te invitamos a leer detenidamente nuestros términos y condiciones. Al acceder y utilizar este sitio web, aceptas cumplir y estar sujeto/a a estos términos y condiciones.</p>
+  
+  <h2>1. Uso del Sitio Web</h2>
+  <ul>
+    <li>Nuestro sitio web está destinado únicamente para uso personal y no comercial. No está permitido revender nuestros productos con fines comerciales sin nuestro consentimiento previo por escrito.</li>
+    <li>Te comprometes a utilizar este sitio web de acuerdo con todas las leyes, regulaciones y normativas aplicables.</li>
+  </ul>
+  
+  <h2>2. Productos</h2>
+  <ul>
+    <li>Nuestra tienda vende productos relacionados con el cannabis, como accesorios para fumar, parafernalia, ropa, decoración, entre otros. Sin embargo, es importante tener en cuenta que no vendemos ni suministramos productos que contengan cannabis real, THC u otras sustancias controladas.</li>
+    <li>Todos los productos están sujetos a disponibilidad. Nos reservamos el derecho de modificar o discontinuar cualquier producto en cualquier momento sin previo aviso.</li>
+  </ul>
+  
+  <h2>3. Edad y Restricciones</h2>
+  <ul>
+    <li>Para realizar una compra en nuestra tienda, debes tener al menos la edad legal requerida en tu jurisdicción para comprar productos relacionados con el cannabis.</li>
+    <li>Te comprometes a no utilizar nuestros productos con fines ilegales y a cumplir con todas las leyes y regulaciones aplicables en tu jurisdicción.</li>
+  </ul>
+  
+  <h2>4. Envío y Entrega</h2>
+  <ul>
+    <li>Realizamos envíos a las ubicaciones especificadas en nuestra política de envío. Es tu responsabilidad proporcionar una dirección de envío precisa y completa.</li>
+    <li>No nos hacemos responsables de los retrasos en la entrega ocasionados por causas ajenas a nuestro control, como demoras en el transporte o problemas aduaneros.</li>
+  </ul>
+  
+  <h2>5. Propiedad Intelectual</h2>
+  <ul>
+    <li>Todos los derechos de propiedad intelectual relacionados con nuestro sitio web y productos son propiedad exclusiva nuestra o de nuestros proveedores.</li>
+    <li>No se permite la reproducción, distribución, modificación o uso no autorizado de cualquier contenido protegido por derechos de autor o propiedad intelectual sin nuestro consentimiento previo por escrito.</li>
+  </ul>
+  
+  <h2>6. Política de Devoluciones y Reembolsos</h2>
+  <p>Consulta nuestra política de devoluciones y reembolsos para obtener información detallada sobre cómo proceder en caso de que desees devolver un producto o solicitar un reembolso.</p>
+  
+  <h2>7. Limitación de Responsabilidad</h2>
+  <p>En la medida máxima permitida por la ley, no nos hacemos responsables de ningún daño directo, indirecto, incidental, consecuente o especial que pueda surgir del uso o la incapacidad de uso de nuestros productos o sitio web.</p>
+  
+  <h2>8. Ley Aplicable</h2>
+  <p>Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes de [jurisdicción]. Cualquier disputa que surja de estos términos y condiciones estará sujeta a la jurisdicción exclusiva de los tribunales de [jurisdicción].</p>
+
+  <script>
+    // Obtener el botón
+    const volverButton = document.getElementById('volverButton');
+
+    // Aplicar el efecto de desenfoque al pasar el cursor sobre el botón
+    volverButton.addEventListener('mouseenter', () => {
+      const elementsToBlur = Array.from(document.body.children).filter(element => element !== volverButton);
+      elementsToBlur.forEach(element => {
+        element.style.transition = 'filter 0.5s ease';
+        element.style.filter = 'blur(5px)';
+      });
+    });
+
+    // Eliminar el efecto de desenfoque al quitar el cursor del botón
+    volverButton.addEventListener('mouseleave', () => {
+      const elementsToBlur = Array.from(document.body.children).filter(element => element !== volverButton);
+      elementsToBlur.forEach(element => {
+        element.style.transition = 'filter 0.5s ease';
+        element.style.filter = 'none';
+      });
+    });
+
+    // Redireccionar al hacer clic en el botón
+    volverButton.addEventListener('click', () => {
+      window.location.href = '/';
+    });
+  </script>  
+</body>
+</html>

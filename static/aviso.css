@@ -1,0 +1,404 @@
+@media (min-width: 195px) and (max-width: 801px) {
+/* Estilos generales */
+body {
+    color: black;
+    font-family: 'Arial';
+    user-select: none;
+    background-color: rgb(202, 221, 197);
+}
+
+h1 {
+    color: #333; /* Color del texto */
+    margin-top: 3.5%; /* Margen superior */
+    font-size: large;
+    margin-left: 3.5%;
+}
+
+h3 {
+    color: #333; /* Color del texto */
+    margin-top: 3.5%; /* Margen superior */
+    font-weight:normal;
+    font-size: small;
+    margin-left: 3.5%;
+}
+
+.backimg img {
+    display: none;
+}
+
+.nav-container {
+    display: none;
+}
+
+#title1 {
+    display: none;
+}
+
+#sepa {
+    display: none;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    right: 0;
+    margin-top: -1.5%;
+}
+
+.header1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header1 img {
+    margin-left: 2.5%;
+    margin-top: 0.4%;
+    max-width: 40px;
+    padding: 6px 10px;
+}
+
+.header1 h1 {
+    font-size: x-large;
+}
+
+.header1 nav {
+    margin-top: 3.5%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #000;
+    margin-bottom: 6.5px;
+    opacity: 0; /* Inicialmente oculto */
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+    opacity: 0; /* Inicialmente oculto */
+    }
+    to {
+    opacity: 1; /* Completamente visible */
+    }
+}
+
+.nav-toggle span:nth-child(1) {
+    animation-delay: 0s; /* Sin retraso */
+}
+
+.nav-toggle span:nth-child(2) {
+    animation-delay: 0.25s; /* 0.25 segundos de retraso */
+}
+
+.nav-toggle span:nth-child(3) {
+    animation-delay: 0.5s; /* 0.5 segundos de retraso */
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden; /* Oculta el contenido que sobrepase el máximo alto */
+    transition: max-height 0.3s ease; /* Transición suave de 0.3 segundos */
+    max-height: 0; /* Oculta inicialmente el menú */
+    overflow: hidden; /* Oculta el contenido que sobrepase el máximo alto */
+    list-style: none; /* Elimina las viñetas de la lista */
+    width: 100%; /* Ocupa el 100% de la pantalla a lo ancho */
+    margin-left: -10%;
+}
+
+.nav-menu li {
+    font-size: large;
+    color: black;
+    margin-right: 3%;
+    user-select: none;
+    margin-bottom: 1%;
+    width: 100%; /* Ocupa el 100% de la pantalla a lo ancho */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+.nav-menu.show {
+    max-height: 1250px;
+    transition: max-height 1s ease; /* Transición suave de 0.3 segundos */
+    list-style: none; /* Elimina las viñetas de la lista */
+    width: 100%; /* Ocupa el 100% de la pantalla a lo ancho */
+    margin-left: -10%;
+}
+
+.nav-menu.show li {
+    font-size: large;
+    color: black;
+    user-select: none;
+    margin-bottom: 1%;
+    width: 100%; /* Ocupa el 100% de la pantalla a lo ancho */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+.nav-menu li a {
+    text-decoration: none; /* Elimina la decoración de subrayado del enlace */
+    color: inherit; /* Hereda el color del texto del elemento padre */
+}
+
+.lupa {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+    width: 75%;
+}
+
+#searchInput {
+    font-family: 'Arial';
+    margin-left: 0.5%;
+    width: 80%;
+    align-items: center;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#searchInput:focus {
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#carritoBtn {
+    padding: 6px;
+    margin-right: 1.5%;
+    margin-left: 1.5%;
+}
+
+#separador {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.containertop {
+    font-family: 'Arial';
+    margin-top: -3%;
+    background-color: rgb(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    padding: 2.5%;
+    border-radius: 1px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Agrega la sombra */
+}
+
+.card.show {
+    position: absolute;
+    background-color: #f1f1f1;
+    margin-top: 0.9%;
+    transition: max-height 0.4s ease; /* Transición suave de 0.3 segundos */
+    width: 96%;
+    height: 75%;
+    max-height: 99%;
+    border-radius: 15px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Agrega la sombra */
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .card {
+    overflow: hidden;
+    position: absolute;
+    background-color: rgb(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    border-radius: 15px;
+    opacity: 1; /* Inicialmente oculto */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Agrega la sombra */
+    transition: max-height 0.25s ease; /* Transición suave de 0.3 segundos */
+    height: 75%;
+    max-height: 0%; /* Oculta inicialmente el menú */
+  }
+
+  .container {
+    font-family: 'Arial';
+    background-color: rgb(255, 255, 255, 0.9);
+    display: relative;
+    flex-direction: column;
+    padding: 2.5%;
+    margin-top: 2%;
+    border-radius: 15px;    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Agrega la sombra */
+  }
+
+  .container h2 {
+    font-size: medium;
+    margin-left: 1%;
+  }
+
+  .container h3 {
+    font-size: medium;
+    margin-left: 1%;
+  }
+
+  #cajonimg {
+    width: 100%;
+    height: 400px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+  }
+  
+  #cajonimg img {
+    display: inline-block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    scroll-snap-align: center;
+  }
+
+  .preciocenter {
+    text-align: center;
+}
+
+#precio {
+    color: green;
+    font-size: 24px;
+  }
+  
+  
+}
+
+@media (min-width: 802px) and (max-width: 2000px) {
+
+.header1 {
+    display: none;
+}
+
+/* Estilos del título "Cannubis Store" */
+#title1 {
+    font-family: 'Arial';
+    position: absolute;
+    top: 30%;
+    padding: 2%;
+    max-width: 65%;
+}
+
+#title1 h2 {
+    color: #0a0a0a;
+    margin: 0;
+    font-size: 400%; /* Tamaño de letra ajustado a 36px */
+}
+
+header {
+    position:fixed;
+    font-family: 'Arial';
+    z-index: 9999; /* Valor alto */
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px); /* Aplica un desenfoque de 5px */
+    padding: 1%;
+    width: 100%;
+}
+
+.nav1 {
+    display: none;
+}
+
+.lupa {
+    display: none;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 1250px;
+}
+
+#searchInput {
+    font-family: 'Arial';
+    width: 200px; /* Tamaño inicial del campo de búsqueda */
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease; /* Transición suave de 0.3 segundos para el cambio de tamaño */
+}
+
+#searchInput:focus {
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 400px; /* Tamaño del campo de búsqueda al hacer clic en él */
+}
+
+h1 {
+    font-family: 'Arial';
+    width: 100%; /* Establece el ancho deseado */
+    margin-left: 1%;
+    color: #fff;
+    margin: 0;
+    padding: 1%;
+}
+
+/* Estilos de la barra de navegación */
+nav {
+    text-align: right; /* Alinea los elementos de la barra de navegación a la derecha */
+    margin-right: 1%;
+    width: 100%; /* Establece el ancho deseado */
+}
+
+ul {
+    list-style: none; /* Elimina los estilos de viñetas en la lista */
+    margin: 0; /* Elimina los márgenes en la lista */
+    padding: 0; /* Elimina los rellenos en la lista */
+}
+
+li {
+    display: inline-block; /* Muestra los elementos de la lista en línea */
+    margin-left: 10px; /* Establece un margen a la izquierda entre los elementos */
+}
+
+li:first-child {
+    margin-left: 0; /* Elimina el margen a la izquierda del primer elemento */
+}
+
+li a {
+    position: relative; /* Posición relativa para los elementos de enlace */
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Sin decoración de texto */
+    padding: 5px 10px; /* Relleno interno del enlace */
+}
+
+li a::after {
+    content: ''; /* Crea el pseudo-elemento */
+    position: absolute; /* Posición absoluta para el subrayado */
+    left: 9px; /* Comienza desde la izquierda */
+    bottom: 0; /* Alínea el subrayado en la parte inferior */
+    width: 0; /* Inicialmente sin ancho */
+    height: 2px; /* Altura del subrayado */
+    background-color: rgb(255, 255, 255); /* Color del subrayado */
+    transition: width 0.3s; /* Transición suave para el ancho */
+}
+
+li a:hover::after {
+    width: 80%; /* Aumenta el ancho al 100% en el hover */
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial';
+    max-width: 1350px; 
+    background-color: rgb(252, 254, 245);
+    color: #fff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+    
+
+}

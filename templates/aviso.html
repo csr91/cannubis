@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannubis Store</title>
+    <link rel="stylesheet" href="/static/aviso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<header>
+    <div class="header1">
+        <img src="/static/images/ico/192.png">
+        <div id="lupa" class="lupa">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button id="carritoBtn">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>        
+        <nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+    <div class="nav1">
+        <ul class="nav-menu">
+            <li><a href="/nosotros">Mi Cuenta</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+        </ul>
+    </div>
+    <div class="nav-container">
+        <div class="nav-izquierda">
+            <h1>
+                Grow Shop Online
+            </h1>
+            <!-- <img src="/static/images/logo.png" type="image/png"> -->
+        </div>
+        <div id="lupa" class="nav-center">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+        <div class="nav-derecha">
+            <nav>
+                <ul class="nav-menu1">
+                    <li><a href="javascript:void(0);" onclick="scrollToTop()">Inicio</a></li>
+                    <li><a href="/productos">Productos</a></li>
+                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                </ul>
+            </nav>  
+        </div>  
+    </div>
+</header>
+<body>
+    <div class="containertop">
+        Enviar a:
+    </div>
+    <div class="card-container">
+        <div class="card">
+            tttttttttttoggle card
+        </div>
+        <!-- Contenido de la tarjeta -->        
+    </div>
+    <h3 id="estadoaviso">
+        <span id="condicion"></span> - <span id="cantidad"></span> - <span id="estrellas"></span>
+    </h3>
+    <h1 id="titulo"></h1>
+    <div class="container">
+        <h3 id="desc-corta">desription</h3>
+        <div id="cajonimg"></div>
+        <div id="separador"></div>
+        <div class="preciocenter">
+            <h2 id="precio">precio</h2>
+        </div>
+        <div>
+            envios
+        </div>
+    </div>
+    <div>
+        stock
+        cantidad
+    </div>
+    <div>
+        comprar
+        agregar carrito
+    </div>
+    <div>
+        politica devolucion
+    </div>
+    <div>
+        favs
+        compartir
+    </div>
+    <div>
+        publicaciones vendedor
+    </div>
+    <div>
+        infotienda
+    </div>
+    <div>
+        descripcion prod
+    </div>
+    <div>
+        medios depago
+    </div>
+    <div>
+        preguntas y resp
+    </div>
+</body>
+<script src="/static/aviso.js"></script>
+</html>

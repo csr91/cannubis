@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannubis Store</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header1">
+        <img src="/static/images/ico/192.png">
+        <h1>Cannubis Store</h1>
+        <nav>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+    <div class="nav1">
+      <ul class="nav-menu">
+        <li><a href="javascript:void(0);" onclick="scrollToTop()">Inicio</a></li>
+        <li><a href="/productos">Productos</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="nav-container">
+      <div class="nav-izquierda">
+        <h1>
+          Grow Shop Online
+        </h1>
+        <!-- <img src="/static/images/logo.png" type="image/png"> -->
+      </div>
+      <div id="lupa" class="nav-center">
+        <input type="text" id="searchInput" placeholder="Buscar...">
+      </div>
+      <div class="nav-derecha">
+        <nav>
+          <ul class="nav-menu1">
+            <li><a href="javascript:void(0);" onclick="scrollToTop()">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </nav>  
+      </div>  
+    </div>
+  </header>
+  <div>
+  <div class="card-container">
+    <div class="card">
+        tttttttttttoggle card
+    </div>
+    <!-- Contenido de la tarjeta -->        
+  </div>
+  <div class="backimg">
+    <img src="/static/images/fond1.jpg">
+  </div>
+  <div id="title1">
+    <h2>Cannubis Store</h2>
+    <button class="rounded-button" onclick="scrollToProductosDestacados()">Comencemos</button>
+  </div>
+  <div id="lupa" class="lupa">
+    <input type="text" id="searchInput" placeholder="Buscar...">
+    <button id="carritoBtn">
+      <i class="fas fa-shopping-cart"></i>
+    </button>
+  </div>
+  <div class="container">
+    <div>
+      <h3>Productos CBD</h3>
+      <h3>Accesorios</h3>
+      <h3>Autocultivo</h3>
+      <h3>Bienestar</h3>
+    </div>
+  </div>
+  <div id="sepa" class="sepa">
+    <img src="/static/images/ico/favicon-32x32.png" alt="Icono">
+  </div>
+  <div id="productos-destacados">    
+    <h2>Productos Destacados</h2>
+    <div id="productos-destacados-superior"></div>
+    <div id="productos-destacados-inferior"></div>
+  </div>
+  <div id="separador"></div>
+  <!-- imagen estatica que debe redireccionar a sección ofertas -->
+  <div id="ofertas">
+    <div class="centered-image">
+      <img src="/static/images/ofer.jpg" alt="Ofertas">
+    </div>
+  </div>
+  <!-- DIV DE TIENDAS DESTACADAS -->
+  <div id="tiendas-destacadas" class="tiendasdestacadas">
+    <h2>Tiendas Destacadas</h2>
+    <div id="tiendas-arriba" class="recuadros"></div>
+  </div>
+  <div id="separador"></div>
+  <div id="ofertas">
+    <div class="centered-image">
+      <img src="/static/images/mdc.jpg" alt="medios de pago">
+      </div>
+  </div>
+  <div class="newsletter">
+    <p>Los aceites de cannabis, conocidos por su concentración de cannabinoides, han ganado popularidad en el mercado.</p>
+      <p>Estos productos ofrecen una variedad de aplicaciones terapéuticas y se utilizan para aliviar el estrés, el dolor y promover la relajación.</p>
+      <p>Los aceites de cannabis pueden ser una opción natural para mejorar el bienestar personal.</p>
+  </div>      
+  <script src="/static/index.js"></script>
+</body>
+<footer>
+  <div class="footer-container">
+    <div class="footer-left-section">
+      <p>Cannubis Store</p>
+      <p>Todos los derechos reservados</p>
+    </div>
+    <img src="/static/images/ico/favicon-32x32.png" alt="Icono" class="footer-icon">
+    <div class="footer-right-section">
+      <p><a href="politicas-y-terminos">Terminos y Condiciones</a></p>
+    </div>
+  </div>
+</footer>

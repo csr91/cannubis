@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cannubis Store</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="/static/images/ico/favicon-32x32.png" type="image/x-icon">
+  <header id="header">
+    <div class="nav-container">
+      <div class="nav-izquierda">
+        <h1>Grow Shop Online</h1>
+        <!-- <img src="/static/images/logo.png" type="image/png"> -->
+      </div>
+      <div id="lupa" class="nav-center">
+        <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+      <div class="nav-derecha">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="javascript:void(0);" onclick="scrollToTop()">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </nav>  
+      </div>  
+    </div>
+  </header>
+  <div class="backimg">
+    <img src="/static/images/fond1.jpg">
+  </div>
+</head>
+<body>
+  <!-- Titulo cannubis store mas boton comencemos que se desplaza a productos destacados -->
+  <div id="title1">
+    <h2>Cannubis Store</h2>
+    <button class="rounded-button" onclick="scrollToProductosDestacados()">Comencemos</button>
+  </div>
+  <div id="sepa" class="sepa">
+    -----
+  </div>
+  <div id="productos-destacados">    
+    <div id="productos-destacados-superior">
+      <h2>Productos Destacados</h2>
+      <div id="productos-destacados-inferior">
+      </div>
+    </div>
+  </div>
+    <!-- imagen estatica que debe redireccionar a sección ofertas -->
+  <div id="ofertas">
+    <div class="centered-image" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+      <img src="/static/images/ofer.jpg" alt="Ofertas" style="max-width: 80%; height: auto;">
+      </div>
+  </div>
+  <!-- seccion 'descubri' que va a tener una imagen dinamica que debe de cambiar segun se pose el mouse en cada categoria -->
+  <div class="container">
+    <div class="left-section" style="text-align: center; margin-top: 20px; margin-bottom: 20px; position: relative;">
+      <h2>Descubri</h2>
+      <h3>Productos de CBD</h3>
+      <h3>Accesorios</h3>
+      <h3>Productos para el autocultivo</h3>
+      <h3>Productos para el bienestar</h3>
+    </div>
+    <div class="right-section">
+      <img src="/static/images/qua.jpg" alt="Imagen">
+    </div>
+  </div>
+  <!-- DIV DE TIENDAS DESTACADAS -->
+    <div id="tiendas-destacadas" class="tiendasdestacadas">
+    <h2>Tiendas Destacadas</h2>
+    <div id="tiendas-arriba" class="recuadros">
+    </div>
+  </div>
+  <!-- DIV DE TIENDAS DESTACADAS -->
+  <div id="ofertas">
+    <div class="centered-image" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+      <img src="/static/images/mdc.jpg" alt="Ofertas" style="max-width: 80%; height: auto;">
+      </div>
+  </div>
+  <div class="newsletter">
+    <p>Los aceites de cannabis, conocidos por su concentración de cannabinoides, han ganado popularidad en el mercado.</p>
+      <p>Estos productos ofrecen una variedad de aplicaciones terapéuticas y se utilizan para aliviar el estrés, el dolor y promover la relajación.</p>
+      <p>Los aceites de cannabis pueden ser una opción natural para mejorar el bienestar personal.</p>
+  </div>  
+  <script src="/static/script.js"></script>
+</body>
+<footer>
+  <div class="footer-container">
+    <div class="footer-left-section">
+      <p>Cannubis Store</p>
+      <p>Todos los derechos reservados</p>
+    </div>
+    <img src="/static/images/ico/favicon-32x32.png" alt="Icono" class="footer-icon">
+    <div class="footer-right-section">
+      <p><a href="politicas-y-terminos">Terminos y Condiciones</a></p>
+    </div>
+  </div>
+</footer>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nosotros - Cannubis Store</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url("/static/images/back.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .image-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(73, 54, 2, 0.488);
+      z-index: -1; /* Asegura que la superposición esté detrás del contenido */
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .text {
+      width: 50%;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: justify;
+      background-color: rgba(19, 42, 3, 0.4); /* Fondo transparente */
+      color: rgb(207, 237, 209);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .image {
+      width: 45%;
+      text-align: center;
+      opacity: 0.89;
+    }
+
+    .heading {
+      font-family: '72 Black', cursive;
+      font-size: 24px;
+      margin-top: 0;
+      text-align: right;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-overlay"></div> <!-- Agregado -->
+  <div class="container">
+    <div class="text">
+      <h1 class="heading">Cannubis Store</h1>
+      <p>En Cannubis Store, hemos creado un espacio único para la comunidad cannábica. Nuestro proyecto nace de la pasión de Cesar Mendoza, un emprendedor autodidacta, dedicado al desarrollo de esta plataforma web.</p>
+
+      <p>Nuestra misión es unificar a los amantes del cannabis en un mismo lugar. Nos enorgullece ser un grow shop online multivendedor, donde no solo podrás encontrar productos de calidad, sino también tener la oportunidad de mostrar y compartir tus propias creaciones relacionadas con el mundo natural del cannabis.</p>
+
+      <p>En Cannubis Store, valoramos la conexión con la naturaleza y la importancia de brindar un servicio cercano y amigable. Queremos ofrecerte una experiencia única, donde puedas explorar nuestro amplio catálogo, obtener productos de confianza y sumergirte en la cultura cannábica de manera responsable.</p>
+
+      <p>Únete a nuestra comunidad y descubre todo lo que Cannubis Store tiene para ofrecerte. ¡Estamos emocionados de ser parte de tu viaje cannábico!</p>
+    </div>
+    <div class="image">
+      <img src="/static/images/yo.jpg" alt="Yo">
+    </div>
+  </div>
+</body>
+</html>
