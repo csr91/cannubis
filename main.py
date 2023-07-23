@@ -1,7 +1,8 @@
 import mysql.connector
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+import os
+from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 
 # Configuración de la base de datos
 db_config = {
@@ -140,8 +141,9 @@ def nosotros():
     return render_template('nosotros.html')
 
 @app.route('/productos')
-def productos():
-    return render_template('productos.html')
+def serve_react_app():
+    build_path = os.path.join(app.static_folder, 'cajonproductos', 'build')
+    return send_from_directory(build_path, 'index.html')
 
 @app.route('/tiendas')
 def tiendas():

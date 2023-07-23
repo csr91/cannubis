@@ -3,7 +3,7 @@ import React from 'react';
 function App() {
   return (
     <div>
-      <h1>Este será mi cajón de productos</h1>
+      <h1>Este será mi cajón de productossss</h1>
     </div>
   );
 }
