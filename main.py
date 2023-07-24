@@ -1,8 +1,10 @@
 import mysql.connector
 import os
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Configuración de la base de datos
 db_config = {
@@ -13,7 +15,6 @@ db_config = {
     'port': 3306  # Puerto por defecto de MySQL
 }
 
-# Ruta de la API para obtener filtros de productos
 @app.route('/productos/filtros', methods=['GET'])
 def obtener_filtros():
     conn = mysql.connector.connect(**db_config)
@@ -22,7 +23,7 @@ def obtener_filtros():
     filtros = cursor.fetchall()
     cursor.close()
     conn.close()
-    
+
     # Convertir los filtros en un objeto JSON
     filtros_json = []
     for filtro in filtros:
@@ -35,6 +36,7 @@ def obtener_filtros():
         filtros_json.append(filtro_json)
     
     # Devolver los filtros como respuesta en formato JSON
+    print(filtro_json)
     return jsonify(filtros_json)
 
 # Ruta de la API para obtener tiendas destacadas
