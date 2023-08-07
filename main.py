@@ -2,6 +2,11 @@ import mysql.connector
 import os
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory
 from flask_cors import CORS
+from flask import make_response
+import bcrypt
+from static.mail_sender import enviar_correo_confirmacion
+from static.mail_sender import generar_token
+import datetime
 
 app = Flask(__name__)
 CORS(app)
@@ -14,6 +19,125 @@ db_config = {
     'database': 'cannubis',  # Nombre de tu base de datos
     'port': 3306  # Puerto por defecto de MySQL
 }
+
+def verificar_contraseña(password, hashed_password):
+    return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
+
+def obtener_usuario_por_correo(correo):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+    query = "SELECT * FROM cuentas WHERE mail = %s"
+    cursor.execute(query, (correo,))
+    usuario = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    return usuario
+
+def actualizar_ultima_fecha_inicio_sesion(id_usuario, fecha_actual):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+    query = "UPDATE cuentas SET LastLogin = %s WHERE Idcuenta = %s"
+    cursor.execute(query, (fecha_actual, id_usuario))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    correo = data.get('correo')
+    contraseña = data.get('contraseña')
+
+    if not correo or not contraseña:
+        return jsonify({'error': 'Correo y contraseña son requeridos.'}), 400
+
+    usuario = obtener_usuario_por_correo(correo)
+
+    if not usuario:
+        return jsonify({'error': 'Correo o contraseña incorrectos.'}), 401
+
+    contraseña_hash = usuario[2]
+
+    if not verificar_contraseña(contraseña, contraseña_hash):
+        return jsonify({'error': 'Correo o contraseña incorrectos.'}), 401
+
+    if not usuario[3]:
+        return jsonify({'error': 'La cuenta no está habilitada.'}), 401
+
+    # Actualizar la columna 'lastlogin' con la fecha y hora del servidor
+    fecha_actual = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    actualizar_ultima_fecha_inicio_sesion(usuario[0], fecha_actual)
+
+    # Crear una cookie con el correo electrónico del usuario
+    response = make_response(jsonify({'message': 'Inicio de sesión exitoso.'}))
+    response.set_cookie('correo', correo)
+
+    # Mostrar el valor de la cookie en la terminal
+    print("Cookie generada:", response.headers['Set-Cookie'])
+
+    return response
+
+def encriptar_password(password):
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password
+
+def guardar_usuario_en_db(email, hashed_password):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+    token = generar_token()
+    fecha_creacion = datetime.datetime.now()
+    query = "INSERT INTO cuentas (mail, contraseña_hash, token, FechaCreacion) VALUES (%s, %s, %s, %s)"
+    cursor.execute(query, (email, hashed_password, token, fecha_creacion))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+@app.route('/registro', methods=['POST'])
+def registro():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+
+    if not email or not password:
+        return jsonify({'error': 'Email y contraseña son requeridos.'}), 400
+
+    hashed_password = encriptar_password(password)
+    try:
+        guardar_usuario_en_db(email, hashed_password)
+        token = generar_token()
+        enviar_correo_confirmacion(email, token)
+        return jsonify({'message': 'Usuario registrado con éxito.'})
+    except mysql.connector.IntegrityError as e:
+        error_message = str(e)
+        if 'Duplicate entry' in error_message:
+            return jsonify({'error': 'El correo electrónico ya está registrado.'}), 400
+        else:
+            return jsonify({'error': 'Ocurrió un error al crear la cuenta.'}), 500
+    
+@app.route('/confirmar_registro', methods=['GET'])
+def confirmar_registro():
+    token = request.args.get('token')
+
+    # Verifica y procesa el token como desees
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+    query = "SELECT * FROM cuentas WHERE token = %s"
+    cursor.execute(query, (token,))
+    cuenta = cursor.fetchone()
+
+    if cuenta:
+        # Actualiza el campo 'habilitado' a 1 para confirmar el registro
+        update_query = "UPDATE cuentas SET habilitado = 1 WHERE token = %s"
+        cursor.execute(update_query, (token,))
+        conn.commit()
+
+        return jsonify({'message': 'Registro confirmado correctamente'})
+    else:
+        return jsonify({'error': 'Token inválido'})
+
+    cursor.close()
+    conn.close()
 
 @app.route('/productos/filtros', methods=['GET'])
 def obtener_filtros():
@@ -150,6 +274,14 @@ def serve_react_app():
 @app.route('/tiendas')
 def tiendas():
     return render_template('tiendas.html')
+
+@app.route('/login')
+def login_route():
+    return render_template('login.html')
+
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
 
 @app.route('/categorias')
 def categorias():
