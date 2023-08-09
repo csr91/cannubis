@@ -7,25 +7,33 @@
     <link rel="stylesheet" href="/static/login.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Crea tu cuenta con nosotros</h2>
-        <form id="formulario">
-            <div class="form-group">
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
+    <div class="section">
+        <div class="left-section">
+            <img src="/static/images/ico/192.png">
+            <div class="login-container">
+                <h2>Crea tu cuenta</h2>
+                <form id="formulario">
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña">Contraseña:</label>
+                        <input type="password" id="contraseña" name="contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña-confirmar">Confirmar Contraseña:</label>
+                        <input type="password" id="contraseña-confirmar" name="contraseña-confirmar" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Crear Cuenta</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="contraseña">Contraseña:</label>
-                <input type="password" id="contraseña" name="contraseña" required>
+        </div>
+            <div class="right-section">
+                
             </div>
-            <div class="form-group">
-                <label for="contraseña-confirmar">Confirmar Contraseña:</label>
-                <input type="password" id="contraseña-confirmar" name="contraseña-confirmar" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Crear Cuenta</button>
-            </div>
-        </form>
     </div>
     <script src="static/signin.js"></script>
 </body>
