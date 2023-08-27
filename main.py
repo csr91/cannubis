@@ -20,6 +20,48 @@ db_config = {
     'port': 3306  # Puerto por defecto de MySQL
 }
 
+@app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])
+def obtener_avisos_por_filtro(idfiltro):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    # Consulta SQL para obtener los avisos con el idfiltro especificado
+    query = '''
+    SELECT a.Idaviso, a.Titulo, a.Descripcion, a.Precio, a.FechaVencimiento,
+           info.Imagen1, info.Imagen2, info.Imagen3, info.Imagen4, info.Imagen5, info.Imagen6
+    FROM avisos a
+    JOIN infoavisos info ON info.Idaviso = a.Idaviso
+    WHERE a.Idfiltro = %s AND a.Disponible = 1
+    '''
+
+    # Ejecutar la consulta con el idfiltro como parámetro
+    cursor.execute(query, (idfiltro,))
+    avisos = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    # Convertir los avisos en un objeto JSON
+    avisos_json = []
+    for aviso in avisos:
+        aviso_json = {
+            'Idaviso': aviso[0],
+            'Titulo': aviso[1],
+            'Descripcion': aviso[2],
+            'Precio': aviso[3],
+            'FechaVencimiento': aviso[4],
+            'Imagen1': aviso[5],
+            'Imagen2': aviso[6],
+            'Imagen3': aviso[7],
+            'Imagen4': aviso[8],
+            'Imagen5': aviso[9],
+            'Imagen6': aviso[10]
+        }
+        avisos_json.append(aviso_json)
+
+    # Devolver los avisos como respuesta en formato JSON
+    return jsonify(avisos_json)
+
+
 def verificar_contraseña(password, hashed_password):
     return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
 
