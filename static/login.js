@@ -27,12 +27,11 @@ function enviarDatos(event) {
         alert(data.error);
       } else {
         // Redirigir a la página de inicio
-        window.location.href = "/inicio";
+        window.location.href = "/";
       }
     })
     .catch(error => alert('Ocurrió un error al iniciar sesión.'));
   }
   
   const formulario = document.getElementById('formulario');
-  formulario.addEventListener('submit', enviarDatos);
-  
+  formulario.addEventListener('submit', enviarDatos); 

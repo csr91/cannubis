@@ -319,7 +319,19 @@ def tiendas():
 
 @app.route('/login')
 def login_route():
-    return render_template('login.html')
+    # Verificar si el usuario ya tiene una cookie
+    correo_cookie = request.cookies.get('correo')
+    print("Cookie existente:", correo_cookie)  # Agrega este registro para ver si hay una cookie
+
+    if correo_cookie:
+        print("Usuario autenticado. Redirigiendo a la página de inicio.")  # Registro de redirección
+        # Redirigir al usuario a la página de inicio, ya que está autenticado
+        return redirect(url_for('index'))
+    else:
+        print("Usuario no autenticado. Mostrando página de inicio de sesión.")  # Registro de no autenticación
+        # Si no tiene una cookie, mostrar la página de inicio de sesión normalmente
+        return render_template('login.html')
+
 
 @app.route('/signin')
 def signin():
