@@ -17,7 +17,7 @@ db_config = {
     'user': 'root',
     'password': 'inrepair9843',
     'database': 'cannubis',  # Nombre de tu base de datos
-    'port': 3306  # Puerto por defecto de MySQL
+    'port': 3306  # Puerto por defecto de MySQLz
 }
 
 @app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])

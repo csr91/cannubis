@@ -1,70 +1,100 @@
 @media (min-width: 195px) and (max-width: 801px) {
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(202, 221, 197);
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
 
-.login-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    width: 300px;
-}
+    .section h1 {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10%;
+    }
 
-.login-container h2 {
-    text-align: center;
-}
+    .left-section {
+        background-color: rgb(202, 221, 197);
+        display: flex;
+        flex-direction: column; /* Cambiamos la dirección de flex a columna */
+        justify-content: center;
+        align-items: center;
+    }
 
-.form-group {
-    margin-bottom: 10px;
-}
+    .left-section img {
+        width: 20%;
+        margin-bottom: 10%;
+        margin-top: -20%;
+    }
 
-.form-group label {
-    display: block;
-    font-weight: bold;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.form-group button {
-    width: 100%;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.form-group button:hover {
-    background-color: #0056b3;
-}
-
-.rounded-button {
-    background-color: #ff7f7f; /* Fondo rojo suave */
-    color: #fff; /* Texto blanco */
-    border-radius: 50px; /* Botón con bordes curvos */
-    padding: 2% 10%; /* Ajustamos el relleno interno del botón */
-    border: none; /* Sin borde */
-    font-size: 17px; /* Tamaño de fuente */
-    margin-top: 0.9%;
-  }
-  
-  .rounded-button:hover {
+    .login-container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 300px;
+        display: flex;
+        flex-direction: column; /* Cambiamos la dirección de flex a columna */
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .login-container h2 {
+        text-align: center;
+        margin-bottom: 10%;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+        width: 300px;
+    }
+    
+    .form-group label {
+        display: block;
+        font-weight: bold;
+    }
+    
+    .form-group input {
+        width: 95%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    .form-group button {
+        width: 100%;
+        background-color: #53842c;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .form-group button:hover {
+        background-color: #12651b;
+    }
+    
+    .rounded-button {
+        background-color: #ff7f7f; /* Fondo rojo suave */
+        color: #fff; /* Texto blanco */
+        border-radius: 50px; /* Botón con bordes curvos */
+        padding: 2% 10%; /* Ajustamos el relleno interno del botón */
+        border: none; /* Sin borde */
+        font-size: 17px; /* Tamaño de fuente */
+        margin-top: 0.9%;
+        text-align: center;
+      }
+      
+    .rounded-button:hover {
     background-color: #ff5656; /* Cambio de color al pasar el cursor */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  }
+    }
 }
 
 @media (min-width: 802px) and (max-width: 2000px) {
@@ -83,6 +113,10 @@ body {
         flex: 1; /* Hace que ambas secciones ocupen igual espacio */
         width: 100%; /* Asegura que la sección ocupe todo el ancho disponible */
         display: flex;
+    }
+
+    .left-section h1 {
+        display: none;
     }
     
     .left-section,
