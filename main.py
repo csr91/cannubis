@@ -1,24 +1,19 @@
 import mysql.connector
 import os
-from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory, session
 from flask_cors import CORS
 from flask import make_response
 import bcrypt
 from static.mail_sender import enviar_correo_confirmacion
 from static.mail_sender import generar_token
+import bdd
+from bdd import db_config
 import datetime
+import hashlib
 
 app = Flask(__name__)
+app.secret_key = "cannubis"
 CORS(app)
-
-# Configuración de la base de datos
-db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'inrepair9843',
-    'database': 'cannubis',  # Nombre de tu base de datos
-    'port': 3306  # Puerto por defecto de MySQLz
-}
 
 @app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])
 def obtener_avisos_por_filtro(idfiltro):
@@ -84,11 +79,29 @@ def actualizar_ultima_fecha_inicio_sesion(id_usuario, fecha_actual):
     cursor.close()
     conn.close()
 
+@app.route('/login')
+def login_route():
+    # Verificar si ya hay una sesión activa
+    if 'username' in session:
+        return redirect(url_for('index'))
+    return render_template('login.html')
+
+@app.route('/ruta_secundaria')
+def ruta_secundaria():
+    if 'username' in session:
+        username = session['username']
+        return f'El nombre de usuario es {username}'
+    else:
+        return 'Usuario no autenticado'
+
+
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
     correo = data.get('correo')
     contraseña = data.get('contraseña')
+
+    nombre_cookie = 'logid'
 
     if not correo or not contraseña:
         return jsonify({'error': 'Correo y contraseña son requeridos.'}), 400
@@ -106,18 +119,40 @@ def login():
     if not usuario[3]:
         return jsonify({'error': 'La cuenta no está habilitada.'}), 401
 
-    # Actualizar la columna 'lastlogin' con la fecha y hora del servidor
-    fecha_actual = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    actualizar_ultima_fecha_inicio_sesion(usuario[0], fecha_actual)
+    # Crear un código algorítmico hash basado en el correo y la fecha actual
+    codigo_algoritmico = hashlib.sha256(f"{correo}{datetime.datetime.now()}".encode()).hexdigest()
 
-    # Crear una cookie con el correo electrónico del usuario
-    response = make_response(jsonify({'message': 'Inicio de sesión exitoso.'}))
-    response.set_cookie('correo', correo)
+    # Crear una respuesta HTTP
+    response = make_response(jsonify({'message': 'Inicio de sesión exitoso'}))
 
-    # Mostrar el valor de la cookie en la terminal
-    print("Cookie generada:", response.headers['Set-Cookie'])
+    # Establecer la cookie con el código algorítmico y hacer que expire en 20 minutos
+    response.set_cookie(nombre_cookie, codigo_algoritmico, max_age=1200)  # 20 minutos = 1200 segundos
+
+    session['username'] = correo
 
     return response
+
+@app.route('/logout')
+def logout():
+    # Eliminar el usuario de la sesión si está presente
+    session.pop('username', None)
+
+    # También podrías eliminar la cookie si la estás utilizando
+    response = make_response(redirect(url_for('login_route')))
+    response.delete_cookie('logid')
+
+    return response
+
+def validar_cookie(cookie_value):
+    # Recuperar el correo y la fecha actual para reproducir el algoritmo
+    correo = 'usuario'  # Debes tener el correo con el que se generó la cookie
+    fecha_actual = datetime.datetime.now()
+
+    # Crear el código algorítmico hash basado en el correo y la fecha actual
+    codigo_algoritmico_esperado = hashlib.sha256(f"{correo}{fecha_actual}".encode()).hexdigest()
+
+    # Comparar el valor de la cookie con el valor esperado
+    return cookie_value == codigo_algoritmico_esperado
 
 def encriptar_password(password):
     salt = bcrypt.gensalt()
@@ -317,24 +352,15 @@ def serve_react_app():
 def tiendas():
     return render_template('tiendas.html')
 
-@app.route('/login')
-def login_route():
-    # Verificar si el usuario ya tiene una cookie
-    correo_cookie = request.cookies.get('correo')
-    print("Cookie existente:", correo_cookie)  # Agrega este registro para ver si hay una cookie
-
-    if correo_cookie:
-        print("Usuario autenticado. Redirigiendo a la página de inicio.")  # Registro de redirección
-        # Redirigir al usuario a la página de inicio, ya que está autenticado
-        return redirect(url_for('index'))
-    else:
-        print("Usuario no autenticado. Mostrando página de inicio de sesión.")  # Registro de no autenticación
-        # Si no tiene una cookie, mostrar la página de inicio de sesión normalmente
-        return render_template('login.html')
-
 
 @app.route('/signin')
 def signin():
+    # Verificar si hay una sesión iniciada
+    if 'username' in session:
+        # El usuario ya está autenticado, redirigir a la página de inicio o a donde prefieras
+        return render_template('index.html')
+
+    # Si no hay una sesión iniciada, mostrar la página de registro
     return render_template('signin.html')
 
 @app.route('/categorias')
