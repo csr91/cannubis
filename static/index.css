@@ -412,6 +412,10 @@ header {
   display: none;
 }
 
+.card {
+  display: none;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;

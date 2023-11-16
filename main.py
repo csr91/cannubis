@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory, session
 from flask_cors import CORS
 from flask import make_response
+from flask_login import LoginManager, login_user, login_required, logout_user, UserMixin, current_user
 import bcrypt
 from static.mail_sender import enviar_correo_confirmacion
 from static.mail_sender import generar_token
@@ -14,48 +15,6 @@ import hashlib
 app = Flask(__name__)
 app.secret_key = "cannubis"
 CORS(app)
-
-@app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])
-def obtener_avisos_por_filtro(idfiltro):
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-
-    # Consulta SQL para obtener los avisos con el idfiltro especificado
-    query = '''
-    SELECT a.Idaviso, a.Titulo, a.Descripcion, a.Precio, a.FechaVencimiento,
-           info.Imagen1, info.Imagen2, info.Imagen3, info.Imagen4, info.Imagen5, info.Imagen6
-    FROM avisos a
-    JOIN infoavisos info ON info.Idaviso = a.Idaviso
-    WHERE a.Idfiltro = %s AND a.Disponible = 1
-    '''
-
-    # Ejecutar la consulta con el idfiltro como parámetro
-    cursor.execute(query, (idfiltro,))
-    avisos = cursor.fetchall()
-    cursor.close()
-    conn.close()
-
-    # Convertir los avisos en un objeto JSON
-    avisos_json = []
-    for aviso in avisos:
-        aviso_json = {
-            'Idaviso': aviso[0],
-            'Titulo': aviso[1],
-            'Descripcion': aviso[2],
-            'Precio': aviso[3],
-            'FechaVencimiento': aviso[4],
-            'Imagen1': aviso[5],
-            'Imagen2': aviso[6],
-            'Imagen3': aviso[7],
-            'Imagen4': aviso[8],
-            'Imagen5': aviso[9],
-            'Imagen6': aviso[10]
-        }
-        avisos_json.append(aviso_json)
-
-    # Devolver los avisos como respuesta en formato JSON
-    return jsonify(avisos_json)
-
 
 def verificar_contraseña(password, hashed_password):
     return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
@@ -79,21 +38,24 @@ def actualizar_ultima_fecha_inicio_sesion(id_usuario, fecha_actual):
     cursor.close()
     conn.close()
 
+# Ruta para /mi_cuenta
+@app.route('/mi_cuenta')
+def mi_cuenta():
+    # Verificar si 'username' está en la sesión
+    if 'userid' in session:
+        # El usuario tiene una sesión activa, redirigir a /mi_cuenta
+        return render_template('cuenta.html')
+    else:
+        # El usuario no tiene una sesión activa, redirigir a la página de inicio (index)
+        return redirect(url_for('index'))
+
+
 @app.route('/login')
 def login_route():
     # Verificar si ya hay una sesión activa
-    if 'username' in session:
+    if 'userid' in session:
         return redirect(url_for('index'))
     return render_template('login.html')
-
-@app.route('/ruta_secundaria')
-def ruta_secundaria():
-    if 'username' in session:
-        username = session['username']
-        return f'El nombre de usuario es {username}'
-    else:
-        return 'Usuario no autenticado'
-
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -128,14 +90,14 @@ def login():
     # Establecer la cookie con el código algorítmico y hacer que expire en 20 minutos
     response.set_cookie(nombre_cookie, codigo_algoritmico, max_age=1200)  # 20 minutos = 1200 segundos
 
-    session['username'] = correo
+    session['userid'] = usuario[0]
 
     return response
 
 @app.route('/logout')
 def logout():
     # Eliminar el usuario de la sesión si está presente
-    session.pop('username', None)
+    session.pop('userid', None)
 
     # También podrías eliminar la cookie si la estás utilizando
     response = make_response(redirect(url_for('login_route')))
@@ -215,6 +177,47 @@ def confirmar_registro():
 
     cursor.close()
     conn.close()
+
+@app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])
+def obtener_avisos_por_filtro(idfiltro):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    # Consulta SQL para obtener los avisos con el idfiltro especificado
+    query = '''
+    SELECT a.Idaviso, a.Titulo, a.Descripcion, a.Precio, a.FechaVencimiento,
+           info.Imagen1, info.Imagen2, info.Imagen3, info.Imagen4, info.Imagen5, info.Imagen6
+    FROM avisos a
+    JOIN infoavisos info ON info.Idaviso = a.Idaviso
+    WHERE a.Idfiltro = %s AND a.Disponible = 1
+    '''
+
+    # Ejecutar la consulta con el idfiltro como parámetro
+    cursor.execute(query, (idfiltro,))
+    avisos = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    # Convertir los avisos en un objeto JSON
+    avisos_json = []
+    for aviso in avisos:
+        aviso_json = {
+            'Idaviso': aviso[0],
+            'Titulo': aviso[1],
+            'Descripcion': aviso[2],
+            'Precio': aviso[3],
+            'FechaVencimiento': aviso[4],
+            'Imagen1': aviso[5],
+            'Imagen2': aviso[6],
+            'Imagen3': aviso[7],
+            'Imagen4': aviso[8],
+            'Imagen5': aviso[9],
+            'Imagen6': aviso[10]
+        }
+        avisos_json.append(aviso_json)
+
+    # Devolver los avisos como respuesta en formato JSON
+    return jsonify(avisos_json)
 
 @app.route('/productos/filtros', methods=['GET'])
 def obtener_filtros():
@@ -382,10 +385,6 @@ def finalizacion_de_la_compra():
 @app.route('/perfil-del-vendedor')
 def perfil_del_vendedor():
     return render_template('perfil_del_vendedor.html')
-
-@app.route('/registro-e-inicio-de-sesion')
-def registro_e_inicio_de_sesion():
-    return render_template('registro_e_inicio_de_sesion.html')
 
 @app.route('/politicas-y-terminos')
 def politicas_y_terminos():

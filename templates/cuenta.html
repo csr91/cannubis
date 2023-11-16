@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannubis Store</title>
+    <link rel="stylesheet" href="/static/cuenta.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<header>
+    <div class="header1">
+        <img src="/static/images/ico/192.png">
+        <div id="lupa" class="lupa">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button id="carritoBtn">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>        
+        <nav>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+    <div class="nav1">
+        <ul class="nav-menu">
+            <!-- <li><a href="/nosotros">Mi Cuenta</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li> -->
+        </ul>
+    </div>
+    <div class="nav-container">
+        <div class="nav-izquierda">
+            <h1>
+                Grow Shop Online
+            </h1>
+            <!-- <img src="/static/images/logo.png" type="image/png"> -->
+        </div>
+        <div id="lupa" class="nav-center">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+        </div>
+        <div class="nav-derecha">
+            <nav>
+                <ul class="nav-menu1">
+                    <li><a href="javascript:void(0);" onclick="scrollToTop()">Inicio</a></li>
+                    <li><a href="/productos">Productos</a></li>
+                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                </ul>
+            </nav>  
+        </div>  
+    </div>
+</header>
+<body>
+    <div class="holis">
+        <div class="card-container">
+            <div class="card">
+                <button class="boton-cuenta">Mis Datos</button>
+                <button class="boton-cuenta">Seguridad</button>
+                <hr> <!-- Línea horizontal para separar -->
+                <button class="boton-cuenta">Mis Compras</button>
+                <hr> <!-- Otra línea horizontal -->
+                <button class="boton-cuenta">Mis Ventas</button>
+                <hr> <!-- Otra línea horizontal -->
+                <button class="boton-cuenta">Administrar Favoritos</button>
+                <button class="boton-cuenta">Alertas de Búsqueda</button>
+                <hr> <!-- Otra línea horizontal -->
+                <button class="boton-cuenta">Cerrar Sesión</button>
+            </div>        
+            </div>
+            <div class="columna-centro">
+    
+            </div>
+            <div class="columna-derecha">
+    
+                <div id="cuenta">
+                    {% if 'userid' in session %}
+                        Esta es la cuenta de: {{ session['userid'] }}
+                    {% else %}
+                        El usuario no tiene una sesión activa.
+                    {% endif %}
+                </div>
+        </div>
+    </div>
+        
+</body>
+<script src="/static/cuenta.js"></script>
+</html>

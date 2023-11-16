@@ -196,8 +196,8 @@ header {
 
 .card.show {
     position: absolute;
+    margin-top: -3%;
     background-color: #f1f1f1;
-    margin-top: 0.9%;
     transition: max-height 0.4s ease; /* Transición suave de 0.3 segundos */
     width: 96%;
     height: 75%;
@@ -295,10 +295,9 @@ header {
 }
 
 header {
-    position:fixed;
+    position: relative;
     font-family: 'Arial';
-    z-index: 9999; /* Valor alto */
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(168,180,156);
     backdrop-filter: blur(5px); /* Aplica un desenfoque de 5px */
     padding: 1%;
     width: 100%;
@@ -389,16 +388,41 @@ li a:hover::after {
     width: 80%; /* Aumenta el ancho al 100% en el hover */
 }
 
-/* Estilos generales */
-body {
+.holis {
     font-family: 'Arial';
-    max-width: 1350px; 
-    background-color: rgb(252, 254, 245);
+    width: 100%;
     color: #fff;
-    margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
-    
 
+.card-container,
+.columna-centro,
+.columna-derecha {
+    height: 100vh; /* Establecer altura al 100% de la ventana */
+}
+
+.card-container {
+    width: 15%;
+    background-color: white
+}
+
+.columna-centro {
+    width: 85%;
+    background-color: rgb(185, 197, 185)
+
+}
+
+.boton-cuenta {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+  }
+  
+  .boton-cuenta:hover {
+    font-weight: bold;
+  }
+  
 }

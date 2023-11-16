@@ -19,6 +19,8 @@ function enviarDatos(event) {
         },
         body: JSON.stringify(datos)
     })
+
+    
     .then(response => {
       if (response.ok) {
           // Redirigir al usuario a la página de inicio ("/")
