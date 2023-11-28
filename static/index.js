@@ -1,3 +1,14 @@
+window.addEventListener("scroll", function() {
+  var barraNavegacion = document.getElementById("nav-izquierda");
+  var porcentajeScroll = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+  if (porcentajeScroll > 30) {
+    barraNavegacion.classList.add("oculto");
+  } else {
+    barraNavegacion.classList.remove("oculto");
+  }
+});
+
 function scrollToProductosDestacados() {
   const sepaSection = document.getElementById('sepa');
   const sepaPosition = sepaSection.getBoundingClientRect().top;
@@ -38,13 +49,14 @@ const recuadrosContainerInferior = document.getElementById('productos-destacados
 fetch('/productos/destacados')
   .then(response => response.json())
   .then(productos => {
-    // Obtener 12 productos aleatorios
-    const productosAleatorios = obtenerProductosAleatorios(productos, 12);
+    // Obtener 16 productos aleatorios
+    const productosAleatorios = obtenerProductosAleatorios(productos, 16);
 
-    // Dividir los productos en tres grupos de cuatro
+    // Dividir los productos en cuatro grupos de cuatro
     const productosGrupo1 = productosAleatorios.slice(0, 4);
     const productosGrupo2 = productosAleatorios.slice(4, 8);
     const productosGrupo3 = productosAleatorios.slice(8, 12);
+    const productosGrupo4 = productosAleatorios.slice(12, 16);
 
     // Generar los elementos HTML para mostrar los productos en cada grupo
     productosGrupo1.forEach(producto => {
@@ -58,6 +70,11 @@ fetch('/productos/destacados')
     });
 
     productosGrupo3.forEach(producto => {
+      const recuadro = generarRecuadro(producto);
+      recuadrosContainerSuperior.appendChild(recuadro);
+    });
+
+    productosGrupo4.forEach(producto => {
       const recuadro = generarRecuadro(producto);
       recuadrosContainerInferior.appendChild(recuadro);
     });

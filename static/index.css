@@ -424,6 +424,11 @@ header {
   max-width: 1300px;
 }
 
+.nav-izquierda.oculto {
+  opacity: 0;
+  visibility: hidden;
+}
+
 #searchInput {
   font-family: 'Arial';
   width: 200px; /* Tamaño inicial del campo de búsqueda */
