@@ -12,7 +12,7 @@ from bdd import db_config
 import datetime
 import hashlib
 import log
-from log.userlog import verificar_contraseña, obtener_usuario_por_correo, actualizar_ultima_fecha_inicio_sesion
+from log.userlog import verificar_contraseña, obtener_usuario_por_correo, actualizar_ultima_fecha_inicio_sesion, validar_cookie, encriptar_password, guardar_usuario_en_db
 
 app = Flask(__name__)
 app.secret_key = "cannubis"
@@ -87,33 +87,6 @@ def logout():
     response.delete_cookie('logid')
 
     return response
-
-def validar_cookie(cookie_value):
-    # Recuperar el correo y la fecha actual para reproducir el algoritmo
-    correo = 'usuario'  # Debes tener el correo con el que se generó la cookie
-    fecha_actual = datetime.datetime.now()
-
-    # Crear el código algorítmico hash basado en el correo y la fecha actual
-    codigo_algoritmico_esperado = hashlib.sha256(f"{correo}{fecha_actual}".encode()).hexdigest()
-
-    # Comparar el valor de la cookie con el valor esperado
-    return cookie_value == codigo_algoritmico_esperado
-
-def encriptar_password(password):
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
-    return hashed_password
-
-def guardar_usuario_en_db(email, hashed_password):
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-    token = generar_token()
-    fecha_creacion = datetime.datetime.now()
-    query = "INSERT INTO cuentas (mail, contraseña_hash, token, FechaCreacion) VALUES (%s, %s, %s, %s)"
-    cursor.execute(query, (email, hashed_password, token, fecha_creacion))
-    conn.commit()
-    cursor.close()
-    conn.close()
 
 @app.route('/registro', methods=['POST'])
 def registro():
