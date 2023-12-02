@@ -11,32 +11,12 @@ import bdd
 from bdd import db_config
 import datetime
 import hashlib
+import log
+from log.userlog import verificar_contraseña, obtener_usuario_por_correo, actualizar_ultima_fecha_inicio_sesion
 
 app = Flask(__name__)
 app.secret_key = "cannubis"
 CORS(app)
-
-def verificar_contraseña(password, hashed_password):
-    return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
-
-def obtener_usuario_por_correo(correo):
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-    query = "SELECT * FROM cuentas WHERE mail = %s"
-    cursor.execute(query, (correo,))
-    usuario = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    return usuario
-
-def actualizar_ultima_fecha_inicio_sesion(id_usuario, fecha_actual):
-    conn = mysql.connector.connect(**db_config)
-    cursor = conn.cursor()
-    query = "UPDATE cuentas SET LastLogin = %s WHERE Idcuenta = %s"
-    cursor.execute(query, (fecha_actual, id_usuario))
-    conn.commit()
-    cursor.close()
-    conn.close()
 
 # Ruta para /mi_cuenta
 @app.route('/mi_cuenta')
@@ -89,6 +69,9 @@ def login():
 
     # Establecer la cookie con el código algorítmico y hacer que expire en 20 minutos
     response.set_cookie(nombre_cookie, codigo_algoritmico, max_age=1200)  # 20 minutos = 1200 segundos
+
+    # Actualizar la última fecha de inicio de sesión
+    actualizar_ultima_fecha_inicio_sesion(usuario[0], datetime.datetime.now())
 
     session['userid'] = usuario[0]
 
