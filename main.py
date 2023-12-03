@@ -1,3 +1,4 @@
+from functools import wraps
 import mysql.connector
 import os
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory, session
@@ -14,14 +15,26 @@ import hashlib
 import log
 from log.userlog import verificar_contraseña, obtener_usuario_por_correo, actualizar_ultima_fecha_inicio_sesion, validar_cookie, encriptar_password, guardar_usuario_en_db
 import apicore
-from apicore.apicore import obtener_avisos_por_filtro, obtener_productos_destacados, obtener_datos_aviso
+from apicore.apicore import obtener_avisos_por_filtro, obtener_productos_destacados, obtener_datos_aviso,obtener_info_cuenta
 
 app = Flask(__name__)
 app.secret_key = "cannubis"
 CORS(app)
 
+def require_login(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        # Verificar si 'userid' está en la sesión o si la cookie 'logid' está presente y es válida
+        if 'userid' in session or request.cookies.get('logid'):
+            return func(*args, **kwargs)
+        else:
+            # El usuario no está autenticado, redirigir a la página de inicio de sesión
+            return redirect(url_for('login_route'))
+    return wrapper
+
 # Ruta para /mi_cuenta
 @app.route('/mi_cuenta')
+@require_login
 def mi_cuenta():
     # Verificar si 'username' está en la sesión
     if 'userid' in session:
@@ -135,6 +148,11 @@ def confirmar_registro():
 
     cursor.close()
     conn.close()
+
+@app.route('/infocuentas/<int:idcuenta>', methods=['GET'])
+@require_login
+def infocuentas(idcuenta):
+    return obtener_info_cuenta(idcuenta)
 
 @app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])
 def avisos_por_filtro(idfiltro):

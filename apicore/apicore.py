@@ -104,3 +104,33 @@ def obtener_datos_aviso(idaviso):
     else:
         # Devolver un mensaje de error si no se encontró el aviso
         return jsonify({'error': 'Aviso no encontrado'})
+
+def obtener_info_cuenta(idcuenta):
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    # Consulta SQL para obtener la información de la cuenta
+    query = '''
+    SELECT idcuenta, mail
+    FROM cuentas
+    WHERE idcuenta = %s
+    '''
+
+    # Ejecutar la consulta con el idcuenta como parámetro
+    cursor.execute(query, (idcuenta,))
+    resultado = cursor.fetchone()
+    cursor.close()
+    conn.close()
+
+    # Verificar si se encontró la cuenta con el idcuenta especificado
+    if resultado is not None:
+        # Crear un diccionario con los nombres de las columnas como claves
+        # y los valores correspondientes del resultado de la consulta
+        columnas = ['idcuenta', 'mail']
+        info_cuenta = {columnas[i]: resultado[i] for i in range(len(columnas))}
+
+        # Devolver la información de la cuenta en formato JSON
+        return jsonify(info_cuenta)
+    else:
+        # Devolver un mensaje de error si no se encontró la cuenta
+        return jsonify({'error': 'Cuenta no encontrada'})
