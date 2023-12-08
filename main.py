@@ -13,7 +13,7 @@ from bdd import db_config
 import datetime
 import hashlib
 import log
-from log.userlog import verificar_contraseña, obtener_usuario_por_correo, actualizar_ultima_fecha_inicio_sesion, validar_cookie, encriptar_password, guardar_usuario_en_db
+from log.userlog import verificar_contraseña, obtener_usuario_por_correo, actualizar_ultima_fecha_inicio_sesion, validar_cookie, encriptar_password, guardar_usuario_en_db, login
 import apicore
 from apicore.apicore import obtener_avisos_por_filtro, obtener_productos_destacados, obtener_datos_aviso,obtener_info_cuenta
 
@@ -53,44 +53,8 @@ def login_route():
     return render_template('login.html')
 
 @app.route('/login', methods=['POST'])
-def login():
-    data = request.get_json()
-    correo = data.get('correo')
-    contraseña = data.get('contraseña')
-
-    nombre_cookie = 'logid'
-
-    if not correo or not contraseña:
-        return jsonify({'error': 'Correo y contraseña son requeridos.'}), 400
-
-    usuario = obtener_usuario_por_correo(correo)
-
-    if not usuario:
-        return jsonify({'error': 'Correo o contraseña incorrectos.'}), 401
-
-    contraseña_hash = usuario[2]
-
-    if not verificar_contraseña(contraseña, contraseña_hash):
-        return jsonify({'error': 'Correo o contraseña incorrectos.'}), 401
-
-    if not usuario[3]:
-        return jsonify({'error': 'La cuenta no está habilitada.'}), 401
-
-    # Crear un código algorítmico hash basado en el correo y la fecha actual
-    codigo_algoritmico = hashlib.sha256(f"{correo}{datetime.datetime.now()}".encode()).hexdigest()
-
-    # Crear una respuesta HTTP
-    response = make_response(jsonify({'message': 'Inicio de sesión exitoso'}))
-
-    # Establecer la cookie con el código algorítmico y hacer que expire en 20 minutos
-    response.set_cookie(nombre_cookie, codigo_algoritmico, max_age=1200)  # 20 minutos = 1200 segundos
-
-    # Actualizar la última fecha de inicio de sesión
-    actualizar_ultima_fecha_inicio_sesion(usuario[0], datetime.datetime.now())
-
-    session['userid'] = usuario[0]
-
-    return response
+def pstlogin():
+    return login()
 
 @app.route('/logout')
 def logout():
