@@ -1,3 +1,5 @@
+import hashlib
+import datetime
 import mysql.connector
 import bcrypt
 import bdd
@@ -26,14 +28,9 @@ def actualizar_ultima_fecha_inicio_sesion(id_usuario, fecha_actual):
     conn.close()
 
 def validar_cookie(cookie_value):
-    # Recuperar el correo y la fecha actual para reproducir el algoritmo
-    correo = 'usuario'  # Debes tener el correo con el que se generó la cookie
+    correo = 'usuario'
     fecha_actual = datetime.datetime.now()
-
-    # Crear el código algorítmico hash basado en el correo y la fecha actual
     codigo_algoritmico_esperado = hashlib.sha256(f"{correo}{fecha_actual}".encode()).hexdigest()
-
-    # Comparar el valor de la cookie con el valor esperado
     return cookie_value == codigo_algoritmico_esperado
 
 def encriptar_password(password):
@@ -50,4 +47,26 @@ def guardar_usuario_en_db(email, hashed_password):
     cursor.execute(query, (email, hashed_password, token, fecha_creacion))
     conn.commit()
     cursor.close()
-    conn.close()    
+    conn.close()
+
+def login():
+    data = request.get_json()
+    correo = data.get('correo')
+    contraseña = data.get('contraseña')
+    nombre_cookie = 'logid'
+    if not correo or not contraseña:
+        return jsonify({'error': 'Correo y contraseña son requeridos.'}), 400
+    usuario = obtener_usuario_por_correo(correo)
+    if not usuario:
+        return jsonify({'error': 'Correo o contraseña incorrectos.'}), 401
+    contraseña_hash = usuario[2]
+    if not verificar_contraseña(contraseña, contraseña_hash):
+        return jsonify({'error': 'Correo o contraseña incorrectos.'}), 401
+    if not usuario[3]:
+        return jsonify({'error': 'La cuenta no está habilitada.'}), 401
+    codigo_algoritmico = hashlib.sha256(f"{correo}{datetime.datetime.now()}".encode()).hexdigest()
+    response = make_response(jsonify({'message': 'Inicio de sesión exitoso'}))
+    response.set_cookie(nombre_cookie, codigo_algoritmico, max_age=1200)
+    actualizar_ultima_fecha_inicio_sesion(usuario[0], datetime.datetime.now())
+    session['userid'] = usuario[0]
+    return response
