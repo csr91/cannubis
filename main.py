@@ -113,10 +113,19 @@ def confirmar_registro():
     cursor.close()
     conn.close()
 
-@app.route('/infocuentas/<int:idcuenta>', methods=['GET'])
+@app.route('/infocuentas', methods=['GET'])
 @require_login
-def infocuentas(idcuenta):
-    return obtener_info_cuenta(idcuenta)
+def infocuentas():
+    # Obtener el 'userid' de la sesión
+    user_id_from_session = session.get('userid')
+
+    # Verificar si 'userid' está presente en la sesión
+    if user_id_from_session:
+        # Si está presente, devolver la información de la cuenta
+        return obtener_info_cuenta(user_id_from_session)
+    else:
+        # Si no está presente, redirigir a la página de inicio de sesión
+        return redirect(url_for('login_route'))
 
 @app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])
 def avisos_por_filtro(idfiltro):
