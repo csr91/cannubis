@@ -8,3 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     cardContainer.classList.toggle('show');
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Agrega un evento de clic al botón "Cerrar Sesión"
+  var cerrarSesionBtn = document.querySelector(".boton-cuenta:last-of-type");
+  cerrarSesionBtn.addEventListener("click", function() {
+      // Redirige a la URL que ejecutará la acción de logout (puedes cambiarla según tu configuración)
+      window.location.href = "/logout";
+  });
+});
