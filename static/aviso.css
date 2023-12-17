@@ -185,11 +185,12 @@ header {
 
 .containertop {
     font-family: 'Arial';
+    font-size: smaller;
     margin-top: -3%;
     background-color: rgb(255, 255, 255, 0.9);
     display: flex;
     flex-direction: column;
-    padding: 2.5%;
+    align-items: center;
     border-radius: 1px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Agrega la sombra */
 }
@@ -269,136 +270,233 @@ header {
     color: green;
     font-size: 24px;
   }
-  
+
   
 }
 
 @media (min-width: 802px) and (max-width: 2000px) {
+    .header1 {
+        display: none;
+    }
 
-.header1 {
-    display: none;
-}
+    #title1 {
+        font-family: 'Arial';
+        position: absolute;
+        top: 30%;
+        padding: 2%;
+        max-width: 65%;
+    }
 
-/* Estilos del título "Cannubis Store" */
-#title1 {
-    font-family: 'Arial';
-    position: absolute;
-    top: 30%;
-    padding: 2%;
-    max-width: 65%;
-}
+    #title1 h2 {
+        color: #0a0a0a;
+        margin: 0;
+        font-size: 400%;
+    }
 
-#title1 h2 {
-    color: #0a0a0a;
-    margin: 0;
-    font-size: 400%; /* Tamaño de letra ajustado a 36px */
-}
+    header {
+        position: relative;
+        font-family: 'Arial';
+        background-color: rgb(170, 180, 156);
+        backdrop-filter: blur(5px);
+        width: 100%;
+    }
 
-header {
-    position:fixed;
-    font-family: 'Arial';
-    z-index: 9999; /* Valor alto */
-    background-color: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(5px); /* Aplica un desenfoque de 5px */
-    padding: 1%;
-    width: 100%;
-}
+    .nav1 {
+        display: none;
+    }
 
-.nav1 {
-    display: none;
-}
+    .lupa {
+        display: none;
+    }
 
-.lupa {
-    display: none;
-}
+    .lanav {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        display: flex;
+        flex-direction: row;
+    }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-    max-width: 1250px;
-}
+    .lanav0 {
+        height: 10%;
+        width: 15%;
+    }
 
-#searchInput {
-    font-family: 'Arial';
-    width: 200px; /* Tamaño inicial del campo de búsqueda */
-    padding: 6px 10px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: width 0.3s ease; /* Transición suave de 0.3 segundos para el cambio de tamaño */
-}
+    .lanav1 {
+        width: 100%;
+    }
 
-#searchInput:focus {
-    outline: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    width: 400px; /* Tamaño del campo de búsqueda al hacer clic en él */
-}
+    .lanav2 {
+        height: 10%;
+        width: 15%;
+    }
 
-h1 {
-    font-family: 'Arial';
-    width: 100%; /* Establece el ancho deseado */
-    margin-left: 1%;
-    color: #fff;
-    margin: 0;
-    padding: 1%;
-}
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-/* Estilos de la barra de navegación */
-nav {
-    text-align: right; /* Alinea los elementos de la barra de navegación a la derecha */
-    margin-right: 1%;
-    width: 100%; /* Establece el ancho deseado */
-}
+    #searchInput {
+        font-family: 'Arial';
+        width: 200px;
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: width 0.3s ease;
+    }
 
-ul {
-    list-style: none; /* Elimina los estilos de viñetas en la lista */
-    margin: 0; /* Elimina los márgenes en la lista */
-    padding: 0; /* Elimina los rellenos en la lista */
-}
+    #searchInput:focus {
+        outline: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        width: 400px;
+    }
 
-li {
-    display: inline-block; /* Muestra los elementos de la lista en línea */
-    margin-left: 10px; /* Establece un margen a la izquierda entre los elementos */
-}
+    h1 {
+        font-family: 'Arial';
+        width: 100%;
+        margin-left: 1%;
+        color: #fff;
+        margin: 0;
+        padding: 1%;
+    }
 
-li:first-child {
-    margin-left: 0; /* Elimina el margen a la izquierda del primer elemento */
-}
+    nav {
+        text-align: right;
+        margin-right: 1%;
+        width: 100%;
+    }
 
-li a {
-    position: relative; /* Posición relativa para los elementos de enlace */
-    color: #fff; /* Color del texto */
-    text-decoration: none; /* Sin decoración de texto */
-    padding: 5px 10px; /* Relleno interno del enlace */
-}
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-li a::after {
-    content: ''; /* Crea el pseudo-elemento */
-    position: absolute; /* Posición absoluta para el subrayado */
-    left: 9px; /* Comienza desde la izquierda */
-    bottom: 0; /* Alínea el subrayado en la parte inferior */
-    width: 0; /* Inicialmente sin ancho */
-    height: 2px; /* Altura del subrayado */
-    background-color: rgb(255, 255, 255); /* Color del subrayado */
-    transition: width 0.3s; /* Transición suave para el ancho */
-}
+    li {
+        display: inline-block;
+        margin-left: 10px;
+    }
 
-li a:hover::after {
-    width: 80%; /* Aumenta el ancho al 100% en el hover */
-}
+    li:first-child {
+        margin-left: 0;
+    }
 
-/* Estilos generales */
-body {
-    font-family: 'Arial';
-    max-width: 1350px; 
-    background-color: rgb(252, 254, 245);
-    color: #fff;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-    
+    li a {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        padding: 5px 10px;
+    }
 
+    li a::after {
+        content: '';
+        position: absolute;
+        left: 9px;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: rgb(255, 255, 255);
+        transition: width 0.3s;
+    }
+
+    li a:hover::after {
+        width: 80%;
+    }
+
+    body {
+        font-family: 'Arial';
+        color: #000000;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-container {
+        display: none;
+    }
+
+    .holis {
+        font-family: 'Arial';
+        width: 100%;
+        color: #000000;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .columna-izquierda,
+    .columna-centro,
+    .columna-derecha {
+        height: 100vh;
+        background-color: rgb(240, 240, 240);
+    }
+
+    .columna-izquierda {
+        width: 15%;
+    }
+
+    .columna-derecha {
+        width: 15%;
+    }
+
+    .columna-centro {
+        width: 100%;
+    }
+
+    .centertop {
+        width: 100%;
+    }
+
+    .containertop {
+        margin-right: 1px;
+        align-items: center;
+        font-family: 'Arial';
+        font-size: smaller;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+        font-family: 'Arial';
+        background-color: rgb(255, 255, 255, 0.9);
+        display: relative;
+        flex-direction: column;
+        padding: 2.5%;
+        margin-top: 2%;
+        border-radius: 15px;    
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .container h2 {
+        font-size: medium;
+        margin-left: 1%;
+    }
+
+    .container h3 {
+        font-size: medium;
+        margin-left: 1%;
+    }
+
+    #cajonimg {
+        width: 100%;
+        height: 400px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+    }
+
+    #cajonimg img {
+        display: inline-block;
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        scroll-snap-align: center;
+    }
+
+    .preciocenter {
+        text-align: center;
+    }
 }
