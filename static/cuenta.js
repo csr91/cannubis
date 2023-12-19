@@ -1,10 +1,11 @@
+
 document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.querySelector('.nav-toggle');
-  
+  const navMenu = document.querySelector('.nav-menu');
   const cardContainer = document.querySelector('.card');
 
   navToggle.addEventListener('click', function() {
-    
+    navMenu.classList.toggle('show');
     cardContainer.classList.toggle('show');
   });
 });
