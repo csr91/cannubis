@@ -61,10 +61,38 @@ fetch(`/avisos/${idaviso}`)
     console.error('Error:', error);
   });
 
-  fetch(`/avisos/${idaviso}`)
+let currentIndex = 0;
+let totalImages = 0;
+
+function showSlide(index) {
+  const carouselImages = document.getElementById('carousel-images');
+  const slideWidth = document.querySelector('.carousel-image').clientWidth;
+  const offset = -index * slideWidth;
+  carouselImages.style.transform = `translateX(${offset}px)`;
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalImages;
+  showSlide(currentIndex);
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+  showSlide(currentIndex);
+}
+
+window.addEventListener('load', function () {
+  const images = document.querySelectorAll('.carousel-image');
+  images.forEach(image => {
+    image.style.width = '500px';
+  });
+
+  showSlide(currentIndex);
+});
+
+fetch(`/avisos/${idaviso}`)
   .then(response => response.json())
   .then(data => {
-    // Obtener los valores de las imágenes
     const imagenes = [
       data.Imagen1,
       data.Imagen2,
@@ -74,13 +102,27 @@ fetch(`/avisos/${idaviso}`)
       data.Imagen6
     ];
 
-    // Crear elementos de imagen y agregar las imágenes no vacías al div
-    const cajonImg = document.getElementById("cajonimg");
+    totalImages = imagenes.filter(Boolean).length;
+
+    const carouselImages = document.getElementById("carousel-images");
+
+    let loadedImagesCount = 0;
+
     imagenes.forEach(imagen => {
       if (imagen) {
         const img = document.createElement("img");
+
+        img.addEventListener('load', function() {
+          loadedImagesCount++;
+
+          if (loadedImagesCount === totalImages) {
+            showSlide(currentIndex);
+          }
+        });
+
         img.src = imagen;
-        cajonImg.appendChild(img);
+        img.className = 'carousel-image';
+        carouselImages.appendChild(img);
       }
     });
   })

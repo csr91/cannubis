@@ -205,11 +205,6 @@ def contacto():
 def nosotros():
     return render_template('nosotros.html')
 
-@app.route('/productos')
-def serve_react_app():
-    build_path = os.path.join(app.static_folder, 'cajonproductos', 'build')
-    return send_from_directory(build_path, 'index.html')
-
 @app.route('/tiendas')
 def tiendas():
     return render_template('tiendas.html')
@@ -254,6 +249,30 @@ def mostrar_aviso():
     id_aviso = request.args.get('id')
     return render_template('aviso.html')
 
+@app.route('/0/terms')
+def terms():
+    return send_from_directory('cajonprods/build', 'index.html')
+
+@app.route('/0/hello')
+def productos():
+    return send_from_directory('cajonprods/build', 'index.html')
+
+@app.route('/<path:filename>')
+def custom(filename):
+    return send_from_directory('cajonprods/build', filename)
+
+@app.route('/static/js/<path:filename>')
+def custom_static_js(filename):
+    return send_from_directory('cajonprods/build/static/js', filename)
+
+@app.route('/static/css/<path:filename>')
+def custom_static_css(filename):
+    return send_from_directory('cajonprods/build/static/css', filename)
+
+@app.route('/static/media/<path:filename>')
+def custom_static_media(filename):
+    return send_from_directory('cajonprods/build/static/media', filename)
+
 # Establecer la conexión a la base de datos
 try:
     conn = mysql.connector.connect(**db_config)
@@ -263,4 +282,4 @@ except mysql.connector.Error as err:
     print(f'Error al conectar a la base de datos: {err}')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

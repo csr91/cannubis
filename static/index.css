@@ -524,6 +524,7 @@ body {
   text-align: center;
   padding: 1.5%;
   background-color: #495f34; /* Color verde marihuana */
+  min-width: 1100px;
 }
 
 #productos-destacados h2 {

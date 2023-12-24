@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.hola-mundo {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  border: 2px solid #333;
+  transform-origin: center center;
+  transition: transform 0.1s linear;
+}

@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compiled files
+/build
+/dist
+
+# Dependency directories
+/jspm_packages/
+/bower_components/
+
+# IDE files
+.idea/
+.vscode/
+    
+# OS generated files
+.DS_Store
+Thumbs.db
