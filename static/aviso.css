@@ -309,7 +309,7 @@ header {
     header {
         position: relative;
         font-family: 'Arial';
-        background-color: rgb(170, 180, 156);
+        background-color: rgba(73, 95, 52, 0.5); /* Color verde marihuana en formato RGBA */
         backdrop-filter: blur(5px);
         width: 100%;
     }

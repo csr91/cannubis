@@ -193,6 +193,10 @@ def obtener_tiendas_destacadas():
 
 
 # Rutas para las páginas web
+@app.route('/inicio')
+def inicio():
+    return render_template('index.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')

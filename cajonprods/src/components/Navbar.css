@@ -1,17 +1,4 @@
 @media (min-width: 802px) and (max-width: 3000px) {  
-    header {
-        font-family: 'Arial';
-        z-index: 9999;
-        background-color: rgba(0, 0, 0, 0.2);
-        align-items: center;
-        backdrop-filter: blur(5px);
-        width: 100%; /* Ancho completo de la pantalla */
-        top: 0;
-        left: 0;
-        right: 0;
-        min-width: 900px;
-      }
-    
     .nav-container {
       display: flex;
       justify-content: space-between;
