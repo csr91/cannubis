@@ -1,26 +1,6 @@
 import React from 'react';
 
 const TermsAndConditions = () => {
-  const handleBlurEffect = () => {
-    const elementsToBlur = Array.from(document.body.children);
-    elementsToBlur.forEach(element => {
-      element.style.transition = 'filter 0.5s ease';
-      element.style.filter = 'blur(5px)';
-    });
-  };
-
-  const handleRemoveBlurEffect = () => {
-    const elementsToBlur = Array.from(document.body.children);
-    elementsToBlur.forEach(element => {
-      element.style.transition = 'filter 0.5s ease';
-      element.style.filter = 'none';
-    });
-  };
-
-  const handleRedirect = () => {
-    window.location.href = '/';
-  };
-
   return (
     <div style={styles.body}>
       <h1 style={styles.h1}>Términos y Condiciones de la Tienda Cannubis.store</h1>
