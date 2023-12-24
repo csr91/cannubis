@@ -1,0 +1,32 @@
+@media (min-width: 802px) and (max-width: 3000px) {  
+header {
+    font-family: 'Arial';
+    z-index: 9999; /* Valor alto */
+    background-color: rgba(0, 0, 0, 0.2);
+    align-items: center;
+    backdrop-filter: blur(5px); /* Aplica un desenfoque de 5px */
+    
+    padding: 1%;
+    top: 0;
+    left: 0%;
+    right: 0%;
+    min-width: 900px;
+}
+
+.container {
+    display: flex;
+    }
+    
+    .columna-categorias {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    }
+    
+    .columna-productos {
+    flex: 3;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-left: 10px; /* Ajusta el espacio entre las columnas de productos */
+    }
+}

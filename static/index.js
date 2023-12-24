@@ -202,3 +202,22 @@ function obtenerTiendasAleatorias(tiendas, cantidad) {
 
   return tiendasAleatorias;
 }
+
+function showLoading() {
+  document.getElementById('loading').style.display = 'block';
+}
+
+function hideLoading() {
+  document.getElementById('loading').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Mostrar el indicador de carga al hacer clic en cualquier enlace
+  var links = document.querySelectorAll('a');
+  links.forEach(function(link) {
+      link.addEventListener('click', showLoading);
+  });
+
+  // Ocultar el indicador de carga después de que la página se ha cargado completamente
+  window.addEventListener('load', hideLoading);
+});

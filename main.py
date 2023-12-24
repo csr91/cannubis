@@ -249,11 +249,15 @@ def mostrar_aviso():
     id_aviso = request.args.get('id')
     return render_template('aviso.html')
 
-@app.route('/0/terms')
+@app.route('/rct')
+def prd():
+    return send_from_directory('cajonprods/build', 'index.html')
+
+@app.route('/rct/terms')
 def terms():
     return send_from_directory('cajonprods/build', 'index.html')
 
-@app.route('/0/hello')
+@app.route('/rct/productos')
 def productos():
     return send_from_directory('cajonprods/build', 'index.html')
 

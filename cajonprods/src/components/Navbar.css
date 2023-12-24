@@ -1,0 +1,96 @@
+@media (min-width: 802px) and (max-width: 3000px) {  
+    header {
+        font-family: 'Arial';
+        z-index: 9999;
+        background-color: rgba(0, 0, 0, 0.2);
+        align-items: center;
+        backdrop-filter: blur(5px);
+        width: 100%; /* Ancho completo de la pantalla */
+        top: 0;
+        left: 0;
+        right: 0;
+        min-width: 900px;
+      }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+      max-width: 1300px;
+    }
+    
+    .nav-izquierda.oculto {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #searchInput {
+      font-family: 'Arial';
+      width: 200px; /* Tamaño inicial del campo de búsqueda */
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: width 0.3s ease; /* Transición suave de 0.3 segundos para el cambio de tamaño */
+    }
+    
+    #searchInput:focus {
+      outline: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      width: 400px; /* Tamaño del campo de búsqueda al hacer clic en él */
+    }
+    
+    h1 {
+      font-family: 'Arial';
+      width: 100%; /* Establece el ancho deseado */
+      margin-left: 1%;
+      color: #fff;
+      margin: 0;
+      padding: 1%;
+    }
+    
+    /* Estilos de la barra de navegación */
+    nav {
+      text-align: right; /* Alinea los elementos de la barra de navegación a la derecha */
+      margin-right: 1%;
+      width: 100%; /* Establece el ancho deseado */
+    }
+    
+    ul {
+      list-style: none; /* Elimina los estilos de viñetas en la lista */
+      margin: 0; /* Elimina los márgenes en la lista */
+      padding: 0; /* Elimina los rellenos en la lista */
+    }
+    
+    li {
+      display: inline-block; /* Muestra los elementos de la lista en línea */
+      margin-left: 10px; /* Establece un margen a la izquierda entre los elementos */
+    }
+    
+    li:first-child {
+      margin-left: 0; /* Elimina el margen a la izquierda del primer elemento */
+    }
+    
+    li a {
+      position: relative; /* Posición relativa para los elementos de enlace */
+      color: #fff; /* Color del texto */
+      text-decoration: none; /* Sin decoración de texto */
+      padding: 5px 10px; /* Relleno interno del enlace */
+    }
+    
+    li a::after {
+      content: ''; /* Crea el pseudo-elemento */
+      position: absolute; /* Posición absoluta para el subrayado */
+      left: 9px; /* Comienza desde la izquierda */
+      bottom: 0; /* Alínea el subrayado en la parte inferior */
+      width: 0; /* Inicialmente sin ancho */
+      height: 2px; /* Altura del subrayado */
+      background-color: rgb(255, 255, 255); /* Color del subrayado */
+      transition: width 0.3s; /* Transición suave para el ancho */
+    }
+    
+    li a:hover::after {
+      width: 80%; /* Aumenta el ancho al 100% en el hover */
+    }
+    }
