@@ -5,6 +5,13 @@
       align-items: center;
       margin: auto;
       max-width: 1300px;
+      background-color: rgb(102, 144, 87);
+      width: 100%;
+      padding: 1%;
+    }
+
+    .logocontainer img {
+      width: 120px;
     }
     
     .nav-izquierda.oculto {

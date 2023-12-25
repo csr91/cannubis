@@ -221,3 +221,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // Ocultar el indicador de carga después de que la página se ha cargado completamente
   window.addEventListener('load', hideLoading);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.getElementById("headerpc");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 700) { // Cambia este valor según tu necesidad
+      header.classList.remove("opaque");
+      header.classList.add("trans");
+    } else {
+      header.classList.remove("trans");
+      header.classList.add("opaque");
+    }
+  });
+});

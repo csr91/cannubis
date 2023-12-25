@@ -1,15 +1,15 @@
 import React from 'react';
 import './Navbar.css';
+import MiImagen from './192.png';  // Importa la imagen
 
 function Navbar() {
   return (
     <div>    
       <div className="nav-container">
-        <div className="nav-izquierda">
-          <h1>
-            Grow Shop Online
-          </h1>  
-        </div>
+      <div className="logocontainer">
+        <img class="logo" src={MiImagen} alt="Descripción de la imagen" />
+      </div>
+
         <div id="lupa" className="nav-center">
           <input type="text" id="searchInput" placeholder="Buscar..." />
         </div>

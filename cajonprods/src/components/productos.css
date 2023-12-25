@@ -1,9 +1,7 @@
 @media (min-width: 802px) and (max-width: 3000px) {
     header {
-        font-family: 'Arial';
+        width: 100%;
         background-color: rgb(102, 144, 87);
-        padding: 1%;
-        min-width: 900px;
     }
 
     main {

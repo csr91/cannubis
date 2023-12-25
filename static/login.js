@@ -47,3 +47,8 @@ function enviarDatos(event) {
         console.error('Error en la solicitud:', error);
     });
 }
+
+function redirigirASignin() {
+    // Cambiar la ubicación de la ventana al URL de signin
+    window.location.href = '/signin'; // Puedes ajustar la ruta según tu configuración
+}

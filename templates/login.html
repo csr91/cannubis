@@ -9,8 +9,8 @@
 <body>
     <div class="section">
         <div class="left-section">
-            <img src="/static/images/ico/192.png">
-            <h1>Cannubis Store</h1>
+            <img id="pc" src="/static/images/ico/mobilelogoblack.png">
+            <img id="mb" src="/static/images/ico/totallogoblack.png">
             <div class="login-container">
                 <h2>Iniciar sesión</h2>
                 <form id="formulario" onsubmit="enviarDatos(event)">
@@ -26,7 +26,7 @@
                         <button type="submit">Iniciar sesión</button>
                     </div>
                 </form>
-                <button id="crear-cuenta-btn" class="rounded-button">Crear cuenta</button>
+                <button id="crear-cuenta-btn" class="rounded-button" onclick="redirigirASignin()">Crear cuenta</button>
             </div>
         </div>
             <div class="right-section">

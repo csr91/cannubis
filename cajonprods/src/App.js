@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Productos from './components/productos'; 
-import TermsAndConditions from './components/terms'; 
+import Productos from './components/Productos'; 
+import TermsAndConditions from './components/Terms'; 
+import MiImagen from './192.png';  // Importa la imagen
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
 
         {/* Otras rutas ... */}
       </Routes>
+      <img src={MiImagen} alt="Descripción de la imagen" />
     </Router>
   );
 };
