@@ -40,7 +40,7 @@ h3 {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgb(102, 144, 87);
     backdrop-filter: blur(5px);
     right: 0;
     
@@ -309,7 +309,7 @@ header {
     header {
         position: relative;
         font-family: 'Arial';
-        background-color: rgba(73, 95, 52, 0.5); /* Color verde marihuana en formato RGBA */
+        background-color: rgb(102, 144, 87);
         backdrop-filter: blur(5px);
         width: 100%;
     }

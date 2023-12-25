@@ -1,5 +1,4 @@
 import Categorias from './Categorias';
-import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import './productos.css';
@@ -34,7 +33,7 @@ const Productos = () => {
       <main class='main'>
         <div class="centerbox">
           <div className='styleprecajon' id='precajon'>
-            <p id="enviar-a">Enviar a:</p>
+          Enviar a
           </div>
           <div className="container">
             <div>
@@ -43,36 +42,36 @@ const Productos = () => {
             <div className="columna-productos">
               {productos1.map(producto => (
                 <div key={producto.Idaviso}>
-                  <Link to={`http://127.0.0.1:5000/aviso?id=${producto.Idaviso}`}>
+                  <a href={`http://localhost:5000/aviso?id=${producto.Idaviso}`}>
                     <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                     <p>{producto.Titulo}</p>
                     <p>{producto.Descripcion}</p>
                     <p>${producto.Precio}</p>
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>
             <div className="columna-productos">
               {productos2.map(producto => (
                 <div key={producto.Idaviso}>
-                  <Link to={`http://127.0.0.1:5000/aviso?id=${producto.Idaviso}`}>
+                  <a href={`/aviso?id=${producto.Idaviso}`}>
                     <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                     <p>{producto.Titulo}</p>
                     <p>{producto.Descripcion}</p>
                     <p>${producto.Precio}</p>
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>
             <div className="columna-productos">
               {productos3.map(producto => (
                 <div key={producto.Idaviso}>
-                  <Link to={`http://127.0.0.1:5000/aviso?id=${producto.Idaviso}`}>
+                  <a href={`/aviso?id=${producto.Idaviso}`}>
                     <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                     <p>{producto.Titulo}</p>
                     <p>{producto.Descripcion}</p>
-                    <p>${producto.Precio}</p>
-                  </Link>
+                    <p>${producto.Precio}</p>                  
+                  </a>
                 </div>
               ))}
             </div>

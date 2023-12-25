@@ -16,7 +16,7 @@ function Navbar() {
         <div className="nav-derecha">
           <nav>
             <ul className="nav-menu1">
-              <li><a href="/inicio">Inicio</a></li>
+              <li><a href="/">Inicio</a></li>
               <li><a href="/productos">Productos</a></li>
               <li><a href="/contacto">Contacto</a></li>
               <li><a href="/mi_cuenta">Mi Cuenta</a></li>
