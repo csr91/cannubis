@@ -9,7 +9,7 @@ const Categorias = () => {
       .then(data => setCategorias(data))
       .catch(error => console.error('Error fetching categorias:', error));
   }, []);
-
+  
   return (
     <div className="columna-categorias">
       <ul>
