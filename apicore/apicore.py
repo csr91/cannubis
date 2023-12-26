@@ -111,9 +111,10 @@ def obtener_info_cuenta(idcuenta):
 
     # Consulta SQL para obtener la información de la cuenta
     query = '''
-    SELECT idcuenta, mail
-    FROM cuentas
-    WHERE idcuenta = %s
+    SELECT c.idcuenta, c.mail, i.nombre, i.direccion, i.telefono
+    FROM cuentas c
+    LEFT JOIN infocuentas i ON i.idcuenta = c.idcuenta
+    WHERE c.idcuenta = %s
     '''
 
     # Ejecutar la consulta con el idcuenta como parámetro
@@ -126,7 +127,7 @@ def obtener_info_cuenta(idcuenta):
     if resultado is not None:
         # Crear un diccionario con los nombres de las columnas como claves
         # y los valores correspondientes del resultado de la consulta
-        columnas = ['idcuenta', 'mail']
+        columnas = ['idcuenta', 'mail', 'nombre', 'direccion', 'telefono']
         info_cuenta = {columnas[i]: resultado[i] for i in range(len(columnas))}
 
         # Devolver la información de la cuenta en formato JSON

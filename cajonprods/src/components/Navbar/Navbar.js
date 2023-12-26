@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 import MiImagen from './images/192.png';  // Importa la imagen
+import FetchEnviara from './FetchEnviara';
 
 function Navbar() {
   return (
@@ -29,7 +30,7 @@ function Navbar() {
         <div class="postnav-center">
           <div class="postnav-content">
             <div class="postnav-enviara">
-            enviar
+              <FetchEnviara />
             </div>
             <div class="postnav-account">
             micuenta
