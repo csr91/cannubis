@@ -12,7 +12,7 @@
       margin: auto;
       width: 100%;
       background-color: rgb(102, 144, 87);
-      max-width: 1300px;
+      max-width: 1200px;
     }
 
     .nav-center-left {
@@ -104,31 +104,49 @@
       width: 100%;
       display: flex;
       align-items: center;
+      padding: 0.25%;
     }
 
     .postnav-center {
+      margin-right: 1px;
+      font-family: 'Arial';
+      border-radius: 1px; 
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      margin: auto;
+      width: 90%;
+      max-width: 1100px;
+    }
+
+    .postnav-content {
+      margin-top: 0.5%;
+      margin-bottom: 0.5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: auto;
-      width: 50%;
-      max-width: 700px;
     }
 
-    .postnav-center-left {
-      width: 24%;
+    .postnav-enviara {
+      align-items: center;
+      text-align: center;
+      width: 25%;
     }
 
-    .postnav-center-left img {
-      width: 120px;
+    .postnav-account {
+      align-items: center;
+      text-align: center;
+      width: 25%;
     }
     
-    .postnav-center-center {
-      width: 37%;
+    .postnav-shopping-favs {
+      align-items: center;
+      text-align: center;
+      width: 25%;
     }
 
-    .postnav-center-right {
-      width: 37%;
+    .postnav-cart-bell {
+      text-align: center;
+      align-items: center;
+      width: 25%;
     }
 
     }

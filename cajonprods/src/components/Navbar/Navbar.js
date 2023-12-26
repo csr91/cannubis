@@ -27,7 +27,20 @@ function Navbar() {
       </div>
       <div class="postnav">
         <div class="postnav-center">
-          enviar a
+          <div class="postnav-content">
+            <div class="postnav-enviara">
+            enviar
+            </div>
+            <div class="postnav-account">
+            micuenta
+            </div>
+            <div class="postnav-shopping-favs">
+            miscompras favs
+            </div>
+            <div class="postnav-cart-bell">
+            cart bell
+            </div>
+          </div>
         </div>
       </div>
     </div>
