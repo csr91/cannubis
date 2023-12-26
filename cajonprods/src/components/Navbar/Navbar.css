@@ -1,24 +1,36 @@
 @media (min-width: 802px) and (max-width: 3000px) {  
     .nav-container {
+        background-color: rgb(102, 144, 87);
+        width: 100%;
+        padding: 0.3%;
+    }
+  
+    .nav-center {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: auto;
-      max-width: 1300px;
-      background-color: rgb(102, 144, 87);
       width: 100%;
-      padding: 1%;
+      background-color: rgb(102, 144, 87);
+      max-width: 1300px;
     }
 
-    .logocontainer img {
+    .nav-center-left {
+      width: 24%;
+    }
+
+    .nav-center-left img {
       width: 120px;
     }
     
-    .nav-izquierda.oculto {
-      opacity: 0;
-      visibility: hidden;
+    .nav-center-center {
+      width: 37%;
     }
-    
+
+    .nav-center-right {
+      width: 37%;
+    }
+
     #searchInput {
       font-family: 'Arial';
       width: 200px; /* Tamaño inicial del campo de búsqueda */
@@ -87,4 +99,36 @@
     li a:hover::after {
       width: 80%; /* Aumenta el ancho al 100% en el hover */
     }
+
+    .postnav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .postnav-center {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: auto;
+      width: 50%;
+      max-width: 700px;
+    }
+
+    .postnav-center-left {
+      width: 24%;
+    }
+
+    .postnav-center-left img {
+      width: 120px;
+    }
+    
+    .postnav-center-center {
+      width: 37%;
+    }
+
+    .postnav-center-right {
+      width: 37%;
+    }
+
     }

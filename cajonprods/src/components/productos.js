@@ -1,6 +1,6 @@
 import Categorias from './Categorias';
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
+import Navbar from './Navbar/Navbar';
 import './productos.css';
 
 const Productos = () => {
@@ -32,9 +32,6 @@ const Productos = () => {
       </header>
       <main class='main'>
         <div class="centerbox">
-          <div className='styleprecajon' id='precajon'>
-          Enviar a
-          </div>
           <div className="container">
             <div>
               <Categorias />

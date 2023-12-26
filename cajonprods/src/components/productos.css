@@ -1,14 +1,13 @@
 @media (min-width: 802px) and (max-width: 3000px) {
     header {
         width: 100%;
-        background-color: rgb(102, 144, 87);
     }
 
     main {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: auto;
+        margin-top: 10%;
     }
 
     .container {
