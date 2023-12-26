@@ -160,9 +160,6 @@ def obtener_filtros():
             'nivel': filtro[3]
         }
         filtros_json.append(filtro_json)
-    
-    # Devolver los filtros como respuesta en formato JSON
-    print(filtro_json)
     return jsonify(filtros_json)
 
 # Ruta de la API para obtener tiendas destacadas

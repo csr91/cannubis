@@ -1,7 +1,8 @@
-import Categorias from './Categorias';
+import Categorias from './Categorias/Categorias';
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar/Navbar';
 import './productos.css';
+import LongBanners from './banners/longbanners/LongBanners';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -30,6 +31,9 @@ const Productos = () => {
       <header>
         <Navbar />
       </header>
+      <div class="longbanners">
+        <LongBanners />
+      </div>
       <main class='main'>
         <div class="centerbox">
           <div className="container">
@@ -39,7 +43,7 @@ const Productos = () => {
             <div className="columna-productos">
               {productos1.map(producto => (
                 <div key={producto.Idaviso}>
-                  <a href={`http://localhost:5000/aviso?id=${producto.Idaviso}`}>
+                  <a href={`http://127.0.0.1:5000/aviso?id=${producto.Idaviso}`}>
                     <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                     <p>{producto.Titulo}</p>
                     <p>{producto.Descripcion}</p>

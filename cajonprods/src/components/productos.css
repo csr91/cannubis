@@ -3,11 +3,16 @@
         width: 100%;
     }
 
+    .longbanners {
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+
     main {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 10%;
+        margin-top: 2%;
     }
 
     .container {
@@ -19,6 +24,7 @@
         flex: 1;
         width: 95%;
         border: 1px solid #ccc;
+        max-width: 250px;
     }
 
     .columna-productos {

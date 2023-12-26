@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import MiImagen from './images/192.png';  // Importa la imagen
 import FetchEnviara from './FetchEnviara';
+import FetchAccount from './FetchAccount';
 
 function Navbar() {
   return (
@@ -33,7 +34,7 @@ function Navbar() {
               <FetchEnviara />
             </div>
             <div class="postnav-account">
-            micuenta
+              <FetchAccount />
             </div>
             <div class="postnav-shopping-favs">
             miscompras favs

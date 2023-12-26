@@ -1,0 +1,29 @@
+/* LongBanners.css */
+.long-banners-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Ajusta según tus necesidades */
+    margin: auto;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .left-arrow {
+    left: 10px;
+  }
+  
+  .right-arrow {
+    right: 10px;
+  }
+  
