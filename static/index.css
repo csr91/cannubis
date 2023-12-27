@@ -2,7 +2,7 @@
 /* Estilos generales */
 body {
   color: black;
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   user-select: none;
   background-color: rgb(203, 211, 192);
   margin: 0;
@@ -26,7 +26,7 @@ body {
 }
 
 header {
-  background-color: rgba(73, 95, 52, 0.75); /* Color verde marihuana con opacidad completa */
+  background-color: rgba(73, 95, 52, 0.75);
   backdrop-filter: blur(5px);
 }
 
@@ -151,7 +151,7 @@ header {
 }
 
 #searchInput {
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   margin-left: 0.5%;
   width: 80%;
   align-items: center;
@@ -338,7 +338,7 @@ footer {
 .newsletter p {
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
-  font-family: Arial, sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 15px;
@@ -379,7 +379,7 @@ footer {
 @media (min-width: 802px) and (max-width: 3000px) {
 
 header {
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   z-index: 9999; /* Valor alto */
   background-color: rgba(73, 95, 52, 0.75); /* Color verde marihuana con opacidad completa */
   align-items: center;
@@ -425,7 +425,7 @@ header {
 }
 
 #searchInput {
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   width: 200px; /* Tamaño inicial del campo de búsqueda */
   padding: 6px 10px;
   border: none;
@@ -441,7 +441,7 @@ header {
 }
 
 h1 {
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   width: 100%; /* Establece el ancho deseado */
   margin-left: 1%;
   color: #fff;
@@ -496,14 +496,13 @@ li a:hover::after {
 
 /* Estilos generales */
 body {
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   max-width: 1350px; 
-  /* background-image: url("/static/images/fond1.jpg"); */
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: rgb(252, 254, 245);
   color: #fff;
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   margin: 0;
   width: 100%; /* Establece el ancho deseado */
   margin: 0 auto; /* Centra el contenido horizontalmente */
@@ -525,7 +524,7 @@ body {
 
 /* Estilos del título "Cannubis Store" */
 #title1 {
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
   position: absolute;
   top: 27.5%;
   padding: 2%;
@@ -704,7 +703,7 @@ footer {
   background-color: #495f34;
   padding: 20px;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -733,7 +732,7 @@ footer {
 /* Estilos generales */
 body {
   color: black;
-  font-family: 'Arial';
+  font-family: 'Rubik', sans-serif;
 }
 
 header {

@@ -1,8 +1,7 @@
 /* LongBanners.css */
 .long-banners-container {
     position: relative;
-    width: 100%;
-    max-width: 800px; /* Ajusta según tus necesidades */
+    width: 1200px;
     margin: auto;
   }
   

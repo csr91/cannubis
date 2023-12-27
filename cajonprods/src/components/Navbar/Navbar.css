@@ -1,5 +1,6 @@
 @media (min-width: 802px) and (max-width: 3000px) {  
     .nav-container {
+      font-family: 'Rubik', sans-serif;
       background-color: rgba(73, 95, 52, 0.75);
       width: 100%;
       padding: 0.3%;
@@ -36,7 +37,7 @@
     }
 
     #searchInput {
-      font-family: 'Arial';
+      font-family: 'Rubik', sans-serif;
       width: 200px; /* Tamaño inicial del campo de búsqueda */
       padding: 6px 10px;
       border: none;
@@ -51,15 +52,7 @@
       width: 400px; /* Tamaño del campo de búsqueda al hacer clic en él */
     }
     
-    h1 {
-      font-size: x-large;
-      font-family: 'Arial';
-      width: 100%; /* Establece el ancho deseado */
-      margin-left: 1%;
-      color: #fff;
-      margin: 0;
-      padding: 1%;
-    }
+    
     
     /* Estilos de la barra de navegación */
     nav {

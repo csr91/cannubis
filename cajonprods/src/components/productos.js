@@ -1,9 +1,11 @@
-import Categorias from './Categorias/Categorias';
+import PriceFilter from './Left-column/PriceFilter';
+import Categorias from './Left-column/Categorias';
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar/Navbar';
 import './productos.css';
 import LongBanners from './banners/longbanners/LongBanners';
 import Postnav from './Postnav/Postnav';
+import OrdenarPor from './main/OrdenarPor';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -30,19 +32,23 @@ const Productos = () => {
   return (
     <div class="outheader">
       <div class="background">
-          <header>
-            <Navbar />
-          </header>
+        <header>
+          <Navbar />
+        </header>
         <div class="background-center-color">
+          <div class="postnav-container">
             <Postnav />
+          </div>
           <div class="maincenterbackground">
             <div class="longbanners">
               <LongBanners />
             </div>
             <main class='main'>
               <div class="centerbox">
+                  <OrdenarPor />
                 <div className="container">
-                  <div>
+                  <div class="left-column">
+                    <PriceFilter />
                     <Categorias />
                   </div>
                   <div className="columna-productos">

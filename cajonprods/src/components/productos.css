@@ -1,11 +1,10 @@
 @media (min-width: 802px) and (max-width: 3000px) {
-    .outheader {
-        
-    }
+
     .background {
     width: 100%;
     background-color: white;
     }
+    
     .background-center-color {
     max-width: 1650px;
     margin: 0 auto;
@@ -20,13 +19,14 @@
     .longbanners {
         margin-top: 1%;
         margin-bottom: 1%;
+        min-width: 1100px;
     }
 
     main {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: 2%;
+        
         min-width: 1100px;
     }
 
@@ -35,12 +35,12 @@
         color: black;
     }
 
-    .columna-categorias {
+    .left-column {
+        text-align: left;
+        margin-top: 1.5%;
         flex: 1;
-        width: 95%;
-        border: 1px solid #ccc;
-        max-width: 300px;
-        min-width: 145px;
+        width: 99%;
+        border-right: 1px solid #ccc;
     }
 
     .columna-productos {
@@ -54,7 +54,6 @@
     }
 
     .centerbox {
-        max-width: 1350px;
         min-width: 1100px;
     }
 }

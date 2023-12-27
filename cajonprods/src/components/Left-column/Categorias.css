@@ -1,0 +1,28 @@
+.left-column {
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .categoriapadre,
+  .categoriahija {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Agrega una transición suave */
+  }
+  
+  .categoriahija {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+  
+  .categoriapadre:hover,
+  .categoriahija:hover {
+    background-color: #f0f0f0; /* Cambia el color de fondo al pasar el ratón sobre una categoría */
+  }
+  
+  .categoriapadre.expanded {
+    max-height: 200px; /* Ajusta la altura máxima según sea necesario */
+    opacity: 1;
+  }
+  

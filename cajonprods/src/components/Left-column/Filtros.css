@@ -1,0 +1,41 @@
+.filtros-container {
+    font-family: 'Rubik', sans-serif;
+    text-align: left;
+    width: 250px;
+  }
+  
+  body.loaded .filtros-container {
+    max-width: 100%; /* Cambia el ancho a 100% para mostrar el contenido */
+  }
+  
+  
+  .filtro-padre {
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease; /* Transición para el color de fondo */
+  }
+  
+  .filtro-padre:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .hijos {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease; /* Transiciones suaves para altura y opacidad */
+    transform: translateX(-100%); /* Inicialmente desplazado hacia la izquierda */
+  }
+  
+  .hijos.visible {
+    max-height: 600px; /* Ajusta la altura máxima según sea necesario */
+    opacity: 1;
+    transform: translateX(0); /* Desplazamiento de vuelta a la posición original (0) */
+    margin-bottom: 2%;
+  }
+
+  .filtro-hijo {
+    margin-bottom: 5%;
+    transition: max-height 0.3s ease, opacity 0.3s ease; /* Transiciones suaves para altura y opacidad */
+  }
+  
