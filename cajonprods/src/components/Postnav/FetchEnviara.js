@@ -21,7 +21,7 @@ const FetchEnviara = () => {
   }, []); // El segundo argumento del useEffect es una lista de dependencias, en este caso, un array vacío para ejecutar una vez al montar el componente.
 
   return (
-    <div className="postnav-enviara">
+    <div>
       {direccion}
     </div>
   );

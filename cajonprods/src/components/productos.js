@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar/Navbar';
 import './productos.css';
 import LongBanners from './banners/longbanners/LongBanners';
+import Postnav from './Postnav/Postnav';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
@@ -27,58 +28,65 @@ const Productos = () => {
   const productos3 = productos.slice(Math.ceil((2 * productos.length) / 3));
 
   return (
-    <div>
-      <header>
-        <Navbar />
-      </header>
-      <div class="longbanners">
-        <LongBanners />
-      </div>
-      <main class='main'>
-        <div class="centerbox">
-          <div className="container">
-            <div>
-              <Categorias />
+    <div class="outheader">
+      <div class="background">
+          <header>
+            <Navbar />
+          </header>
+        <div class="background-center-color">
+            <Postnav />
+          <div class="maincenterbackground">
+            <div class="longbanners">
+              <LongBanners />
             </div>
-            <div className="columna-productos">
-              {productos1.map(producto => (
-                <div key={producto.Idaviso}>
-                  <a href={`http://127.0.0.1:5000/aviso?id=${producto.Idaviso}`}>
-                    <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
-                    <p>{producto.Titulo}</p>
-                    <p>{producto.Descripcion}</p>
-                    <p>${producto.Precio}</p>
-                  </a>
+            <main class='main'>
+              <div class="centerbox">
+                <div className="container">
+                  <div>
+                    <Categorias />
+                  </div>
+                  <div className="columna-productos">
+                    {productos1.map(producto => (
+                      <div key={producto.Idaviso}>
+                        <a href={`http://127.0.0.1:5000/aviso?id=${producto.Idaviso}`}>
+                          <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
+                          <p>{producto.Titulo}</p>
+                          <p>{producto.Descripcion}</p>
+                          <p>${producto.Precio}</p>
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="columna-productos">
+                    {productos2.map(producto => (
+                      <div key={producto.Idaviso}>
+                        <a href={`/aviso?id=${producto.Idaviso}`}>
+                          <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
+                          <p>{producto.Titulo}</p>
+                          <p>{producto.Descripcion}</p>
+                          <p>${producto.Precio}</p>
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="columna-productos">
+                    {productos3.map(producto => (
+                      <div key={producto.Idaviso}>
+                        <a href={`/aviso?id=${producto.Idaviso}`}>
+                          <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
+                          <p>{producto.Titulo}</p>
+                          <p>{producto.Descripcion}</p>
+                          <p>${producto.Precio}</p>                  
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
-            <div className="columna-productos">
-              {productos2.map(producto => (
-                <div key={producto.Idaviso}>
-                  <a href={`/aviso?id=${producto.Idaviso}`}>
-                    <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
-                    <p>{producto.Titulo}</p>
-                    <p>{producto.Descripcion}</p>
-                    <p>${producto.Precio}</p>
-                  </a>
-                </div>
-              ))}
-            </div>
-            <div className="columna-productos">
-              {productos3.map(producto => (
-                <div key={producto.Idaviso}>
-                  <a href={`/aviso?id=${producto.Idaviso}`}>
-                    <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
-                    <p>{producto.Titulo}</p>
-                    <p>{producto.Descripcion}</p>
-                    <p>${producto.Precio}</p>                  
-                  </a>
-                </div>
-              ))}
-            </div>
+              </div>
+            </main>      
           </div>
         </div>
-      </main>      
+      </div>
     </div>
   );
 };

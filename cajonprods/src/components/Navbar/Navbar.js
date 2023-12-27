@@ -1,12 +1,11 @@
 import React from 'react';
 import './Navbar.css';
 import MiImagen from './images/192.png';  // Importa la imagen
-import FetchEnviara from './FetchEnviara';
-import FetchAccount from './FetchAccount';
+
 
 function Navbar() {
   return (
-    <div>    
+    <div class="header-background-center-color">    
       <div className="nav-container">
         <div class="nav-center">
           <div className="nav-center-left">
@@ -26,25 +25,7 @@ function Navbar() {
             </nav>  
           </div>
         </div>
-      </div>
-      <div class="postnav">
-        <div class="postnav-center">
-          <div class="postnav-content">
-            <div class="postnav-enviara">
-              <FetchEnviara />
-            </div>
-            <div class="postnav-account">
-              <FetchAccount />
-            </div>
-            <div class="postnav-shopping-favs">
-            miscompras favs
-            </div>
-            <div class="postnav-cart-bell">
-            cart bell
-            </div>
-          </div>
-        </div>
-      </div>
+      </div> 
     </div>
   );
 }
