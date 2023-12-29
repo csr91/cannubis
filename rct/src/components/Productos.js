@@ -2,7 +2,8 @@ import PriceFilter from './Left-column/PriceFilter';
 import Categorias from './Left-column/Categorias';
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar/Navbar';
-import './productos.css';
+import './page-productos/d-productos.css';
+import './page-productos/m-productos.css';
 import LongBanners from './banners/longbanners/LongBanners';
 import Postnav from './Postnav/Postnav';
 import OrdenarPor from './main/OrdenarPor';
@@ -54,7 +55,7 @@ const Productos = () => {
                   <div className="columna-productos">
                     {productos1.map(producto => (
                       <div key={producto.Idaviso}>
-                        <a href={`http://127.0.0.1:5000/aviso?id=${producto.Idaviso}`}>
+                        <a href={`/rct/aviso/${producto.Idaviso}`}>
                           <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                           <p>{producto.Titulo}</p>
                           <p>{producto.Descripcion}</p>
@@ -66,7 +67,7 @@ const Productos = () => {
                   <div className="columna-productos">
                     {productos2.map(producto => (
                       <div key={producto.Idaviso}>
-                        <a href={`/aviso?id=${producto.Idaviso}`}>
+                        <a href={`/rct/aviso/${producto.Idaviso}`}>
                           <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                           <p>{producto.Titulo}</p>
                           <p>{producto.Descripcion}</p>
@@ -78,7 +79,7 @@ const Productos = () => {
                   <div className="columna-productos">
                     {productos3.map(producto => (
                       <div key={producto.Idaviso}>
-                        <a href={`/aviso?id=${producto.Idaviso}`}>
+                        <a href={`/rct/aviso/${producto.Idaviso}`}>
                           <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                           <p>{producto.Titulo}</p>
                           <p>{producto.Descripcion}</p>

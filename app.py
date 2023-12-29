@@ -137,7 +137,7 @@ def productos_destacados():
     return obtener_productos_destacados()
 
 # Ruta de la API para obtener los datos del aviso
-@app.route('/avisos/<int:idaviso>', methods=['GET'])
+@app.route('/infoavisos/<int:idaviso>', methods=['GET'])
 def datos_avisos(idaviso):
     return obtener_datos_aviso(idaviso)
 
@@ -245,38 +245,42 @@ def perfil_del_vendedor():
 def politicas_y_terminos():
     return render_template('politicas_y_terminos.html')
 
-@app.route('/aviso')
-def mostrar_aviso():
-    id_aviso = request.args.get('id')
-    return render_template('aviso.html')
+# @app.route('/aviso')
+# def mostrar_aviso():
+#     id_aviso = request.args.get('id')
+#     return render_template('aviso.html')
 
 @app.route('/rct')
 def prd():
-    return send_from_directory('cajonprods/build', 'index.html')
+    return send_from_directory('rct/build', 'index.html')
+
+@app.route('/rct/aviso/<int:idaviso>')
+def mostrar_aviso(idaviso):
+    return send_from_directory('rct/build', 'index.html')   
 
 @app.route('/rct/terms')
 def terms():
-    return send_from_directory('cajonprods/build', 'index.html')
+    return send_from_directory('rct/build', 'index.html')
 
 @app.route('/rct/productos')
 def productos():
-    return send_from_directory('cajonprods/build', 'index.html')
+    return send_from_directory('rct/build', 'index.html')
 
 @app.route('/<path:filename>')
 def custom(filename):
-    return send_from_directory('cajonprods/build', filename)
+    return send_from_directory('rct/build', filename)
 
 @app.route('/static/js/<path:filename>')
 def custom_static_js(filename):
-    return send_from_directory('cajonprods/build/static/js', filename)
+    return send_from_directory('rct/build/static/js', filename)
 
 @app.route('/static/css/<path:filename>')
 def custom_static_css(filename):
-    return send_from_directory('cajonprods/build/static/css', filename)
+    return send_from_directory('rct/build/static/css', filename)
 
 @app.route('/static/media/<path:filename>')
 def custom_static_media(filename):
-    return send_from_directory('cajonprods/build/static/media', filename)
+    return send_from_directory('rct/build/static/media', filename)
 
 # Establecer la conexión a la base de datos
 try:

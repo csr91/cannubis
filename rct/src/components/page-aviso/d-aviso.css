@@ -1,0 +1,26 @@
+@media (min-width: 802px) and (max-width: 3000px) {
+.background {
+width: 100%;
+background-color: white;
+}
+
+.background-center-color {
+max-width: 1650px;
+margin: 0 auto;
+background-color: rgba(240, 240, 240);
+text-align: center;
+}
+
+main {
+width: 100%;
+display: flex;
+justify-content: center;
+min-width: 1100px;
+}
+
+.container {
+display: flex;
+color: black;
+}
+
+}    

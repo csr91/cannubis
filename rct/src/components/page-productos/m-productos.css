@@ -1,0 +1,23 @@
+@media (min-width: 192px) and (max-width: 801px) {
+.background {
+width: 100%;
+background-color: rgb(203, 211, 192);
+max-width: 800px;
+}
+
+.background-center-color {
+max-width: 800px;
+margin: 0 auto;
+background-color: rgb(203, 211, 192);
+text-align: center;
+width: 99%;
+}
+
+.imagen-producto {
+    width: 80px;
+}
+
+.main {
+}
+
+}

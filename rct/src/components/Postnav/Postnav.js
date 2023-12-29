@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBell } from '@fortawesome/free-solid-svg-icons';
 import FetchEnviara from './FetchEnviara';
 import FetchAccount from './FetchAccount';
-import './Postnav.css';
+import './d-Postnav.css';
+import './m-Postnav.css';
 import Favoritos from './Favs';
 
 function Postnav() {
@@ -36,6 +37,9 @@ function Postnav() {
                     <FontAwesomeIcon icon={faShoppingCart} />
                     <FontAwesomeIcon icon={faBell} />
                 </div>
+            </div>
+            <div id="lupa" className="m-postnav-center-lupa">
+                <input className="m-lupa" type="text" id="searchInput" placeholder="Buscar..." />
             </div>
         </div>
       </div>

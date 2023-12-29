@@ -1,0 +1,26 @@
+.toggle-container {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .linea {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    margin: 2px 0;
+    transition: 0.4s;
+  }
+  
+  .toggle-container.activo .linea:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .toggle-container.activo .linea:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .toggle-container.activo .linea:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  

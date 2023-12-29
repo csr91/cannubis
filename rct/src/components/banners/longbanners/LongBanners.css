@@ -1,0 +1,59 @@
+@media (min-width: 192px) and (max-width: 801px) {
+  .long-banners-container {
+      position: relative;
+      width: 99%;
+      margin: auto;
+    }
+    
+    .banner-image {
+      width: 100%;
+      height: auto;
+    }
+    
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .left-arrow {
+      left: 10px;
+    }
+    
+    .right-arrow {
+      right: 10px;
+    }
+    
+  }
+
+@media (min-width: 802px) and (max-width: 3000px) {
+.long-banners-container {
+    position: relative;
+    width: 1200px;
+    margin: auto;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .left-arrow {
+    left: 10px;
+  }
+  
+  .right-arrow {
+    right: 10px;
+  }
+  
+}

@@ -1,0 +1,96 @@
+@media (min-width: 192px) and (max-width: 801px) {
+.nav-container {
+font-family: 'Rubik', sans-serif;
+background-color: rgba(73, 95, 52, 0.75);
+width: 100%;
+padding: 0.3%;
+}
+
+.nav-postcenter {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: auto;
+width: 90%;
+padding: 1%;
+}
+
+.d-nav-center-left {
+display: none;
+}
+
+.logowhite {
+display: none;
+}
+
+.m-nav-center-left {
+width: 24%;
+text-align: left;
+margin-left: 1%;
+}
+
+.m-nav-center-left img {
+width: 90px;
+}
+
+.d-nav-center-center {
+display: none;
+}
+
+.d-nav-center-right {
+display: none;
+}
+
+nav {
+text-align: right; /* Alinea los elementos de la barra de navegación a la derecha */
+margin-right: 1%;
+width: 100%; /* Establece el ancho deseado */
+}
+
+ul {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+li {
+display: inline-block; /* Muestra los elementos de la lista en línea */
+margin-left: 10px; /* Establece un margen a la izquierda entre los elementos */
+}
+
+li:first-child {
+margin-left: 0; /* Elimina el margen a la izquierda del primer elemento */
+}
+
+li a {
+position: relative; /* Posición relativa para los elementos de enlace */
+color: #fff; /* Color del texto */
+text-decoration: none; /* Sin decoración de texto */
+padding: 5px 10px; /* Relleno interno del enlace */
+}
+
+li a::after {
+content: ''; /* Crea el pseudo-elemento */
+position: absolute; /* Posición absoluta para el subrayado */
+left: 9px; /* Comienza desde la izquierda */
+bottom: 0; /* Alínea el subrayado en la parte inferior */
+width: 0; /* Inicialmente sin ancho */
+height: 2px; /* Altura del subrayado */
+background-color: rgb(255, 255, 255);
+transition: width 0.3s; /* Transición suave para el ancho */
+}
+
+li a:hover::after {
+width: 80%; /* Aumenta el ancho al 100% en el hover */
+}
+
+.navbar-cart-bell {
+color: white;
+justify-content: center;
+display: flex;
+}
+
+.navbar-cart-bell svg {
+margin-right: 40px; /* Ajusta la cantidad de espacio entre los iconos según tus preferencias */
+}
+}

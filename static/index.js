@@ -107,11 +107,11 @@ function generarRecuadro(producto) {
 
 
 // Función para redireccionar a un aviso específico
- function redireccionarAviso(idAviso) {
-   const url = new URL('/aviso', window.location.origin);
-   url.searchParams.append('id', idAviso);
-   window.location.href = url.toString();
- }
+function redireccionarAviso(idAviso) {
+  const url = new URL(`/rct/aviso/${idAviso}`, window.location.origin);
+  window.location.href = url.toString();
+}
+
 
 // Función para generar un recuadro HTML para un producto
 function generarRecuadro(producto) {

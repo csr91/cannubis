@@ -1,0 +1,54 @@
+@media (min-width: 802px) and (max-width: 3000px) {
+.background {
+width: 100%;
+background-color: white;
+}
+
+.background-center-color {
+max-width: 1650px;
+margin: 0 auto;
+background-color: rgba(240, 240, 240);
+text-align: center;
+}
+
+.longbanners {
+margin-top: 1%;
+margin-bottom: 1%;
+min-width: 1100px;
+}
+
+main {
+width: 100%;
+display: flex;
+justify-content: center;
+
+min-width: 1100px;
+}
+
+.container {
+display: flex;
+color: black;
+}
+
+.left-column {
+text-align: left;
+margin-top: 1.5%;
+flex: 1;
+width: 99%;
+border-right: 1px solid #ccc;
+}
+
+.columna-productos {
+flex: 3;
+padding: 10px;
+margin-left: 10px; /* Ajusta el espacio entre las columnas de productos */
+}
+
+.imagen-producto {
+width: 280px;
+}
+
+.centerbox {
+min-width: 1100px;
+}
+}
