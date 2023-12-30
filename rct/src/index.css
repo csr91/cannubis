@@ -1,3 +1,18 @@
+@media (min-width: 192px) and (max-width: 801px) {
+.background {
+position: relative;
+width: 100%;
+background-color: rgb(203, 211, 192);
+}
+
+.background-center-color {
+margin-left: 1.5%;
+margin-right: 1%;
+}
+
+}
+
+@media (min-width: 802px) and (max-width: 3000px) {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,5 +24,47 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace;  
+}
+
+.center-content-1300 {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  font-size: large;
+}
+
+.center1-content-1300 {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  font-size: large;
+}
+
+.indexcss-margin1 {
+  margin-top: 0.5%; 
+  margin-bottom: 0.5%;
+}
+
+.background {
+  position: relative;
+  width: 100%;
+  background-color: rgb(203, 211, 192);
+}
+
+.background-center-color {
+  max-width: 1450px;
+  background-color: rgb(203, 211, 192);
+}
+
+.center-content-backgroundcolor {
+  background-color: white;
+}
+
 }

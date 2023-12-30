@@ -46,7 +46,7 @@ def obtener_avisos_por_filtro(idfiltro):
 def obtener_productos_destacados():
     conn = mysql.connector.connect(**db_config)
     cursor = conn.cursor()
-    query = "SELECT av.Idaviso, av.Titulo, av.Descripcion, info.Imagen1, info.Imagen2, info.Imagen3, info.Imagen4, info.Imagen5, info.Imagen6 FROM avisos av JOIN infoavisos info ON info.Idaviso = av.Idaviso WHERE av.Destacado = 1"
+    query = "SELECT av.Idaviso, av.Titulo, av.Descripcion, info.Imagen1, info.Imagen2, info.Imagen3, info.Imagen4, info.Imagen5, info.Imagen6, av.Precio FROM avisos av JOIN infoavisos info ON info.Idaviso = av.Idaviso WHERE av.Destacado = 1"
     cursor.execute(query)
     productos = cursor.fetchall()
     cursor.close()
@@ -59,6 +59,7 @@ def obtener_productos_destacados():
             'Idaviso': producto[0],
             'Titulo': producto[1],
             'Descripcion': producto[2],
+            'Precio': producto[9],
             'Imagenes': [producto[3], producto[4], producto[5], producto[6], producto[7], producto[8]]
         }
         productos_json.append(producto_json)

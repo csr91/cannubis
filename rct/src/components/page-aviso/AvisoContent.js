@@ -36,7 +36,7 @@ function AvisoContent({ id }) {
           <p>Precio: {avisoInfo.Precio}</p>
           <p>Stock: {avisoInfo.Stockproducto}</p>
           {/* Mostrar más información según tus necesidades */}
-          <Carrousel />
+          <Carrousel id={id} />
         </div>
       ) : (
         <p>Cargando información del aviso...</p>

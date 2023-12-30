@@ -1,0 +1,13 @@
+#tiendas-destacadas {
+text-align: center;
+padding: 1.5%;
+font-family: 'Rubik', sans-serif;
+width: 100%;
+}
+
+#tiendas-destacadas h2 {
+font-family: 'Rubik', sans-serif;
+color: black;
+margin: 0;
+font-size: 36px;
+}

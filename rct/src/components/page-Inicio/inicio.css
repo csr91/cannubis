@@ -1,0 +1,17 @@
+@media (min-width: 802px) and (max-width: 3000px) {
+.background {
+width: 100%;
+}
+
+.background-center-color {
+
+margin: 0 auto;
+text-align: center;
+}
+
+
+.inicio-postnav-container {
+margin-top: 0.2%;
+}
+
+}

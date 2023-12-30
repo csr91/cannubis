@@ -18,3 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = "/logout";
   });
 });
+
+$(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+  if (jqxhr.status == 401) {
+      // Redirigir a la página de inicio de sesión
+      window.location.href = '/login';
+  }
+});

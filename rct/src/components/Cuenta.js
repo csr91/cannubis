@@ -1,11 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import Postnav from './Postnav/Postnav';
-import AvisoContent from './page-Aviso/AvisoContent';  // Importar el componente de contenido
 
-function Aviso() {
-  const { id } = useParams();
+
+function Cuenta() {
 
   return (
     <div>
@@ -18,7 +16,7 @@ function Aviso() {
             <div className="postnav-container">
               <Postnav />
             </div>
-            <AvisoContent id={id} />
+            
           </div>
         </div>
       </div>
@@ -26,4 +24,4 @@ function Aviso() {
   );
 }
 
-export default Aviso;
+export default Cuenta;

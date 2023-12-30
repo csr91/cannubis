@@ -6,24 +6,36 @@
     <title>Cannubis Store</title>
     <link rel="stylesheet" href="/static/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
   </head>
   <body>
-    <header id="headerpc">
-      <div class="header1">
-        <img id="logo" src="/static/images/ico/mobilelogoblack.png">        
-        <img id="centerlogo"src="/static/images/ico/cannubisstoresoloblack.png">
-        <nav>
-          <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+    <header>
+      <div class="m-fullheader">
+        <div class="m-fullheader-center">
+          <div class="m-header-left">
+            <img id="logo" src="/static/images/ico/192.png">        
           </div>
-        </nav>
+          <div class="m-header-right">
+            <div class="m-header-right-30">
+            </div>
+            <div class="m-header-right-70">
+              <div id="bellandcart">
+                <i class="fas fa-bell icon" aria-hidden="true"></i>
+                <i class="fas fa-shopping-cart icon" aria-hidden="true"></i>
+              </div>
+              <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="nav1">
         <ul class="nav-menu">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/0/productos">Productos</a></li>
+          <li><a href="/rct/productos">Productos</a></li>
           <li><a href="/contacto">Contacto</a></li>
         </ul>
       </div>
@@ -33,7 +45,7 @@
           <img src="/static/images/ico/192.png">        
         </div>
       </div>
-      <div id="lupa" class="nav-center">
+    <div id="lupa" class="nav-center">
         <input type="text" id="searchInput" placeholder="Buscar...">
       </div>
       <div class="nav-derecha">
@@ -42,7 +54,7 @@
             <li><a href="javascript:void(0);" onclick="scrollToTop()">Inicio</a></li>
             <li><a href="/rct/productos">Productos</a></li>
             <li><a href="/contacto">Contacto</a></li>
-            <li><a href="/mi_cuenta">Mi Cuenta</a></li>
+            <li><a href="/rct/cuenta">Mi Cuenta</a></li>
           </ul>
         </nav>  
       </div>  
@@ -77,9 +89,6 @@
   </div>
   <div id="lupa" class="lupa">
     <input type="text" id="searchInput" placeholder="Buscar...">
-    <button id="carritoBtn">
-      <i class="fas fa-shopping-cart"></i>
-    </button>
   </div>
   <div class="container">
     <div>

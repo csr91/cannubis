@@ -1,4 +1,6 @@
 from functools import wraps
+from flask import flash
+from functools import wraps
 import mysql.connector
 import os
 from flask import Flask, render_template, jsonify, request, redirect, url_for, send_from_directory, session
@@ -32,22 +34,24 @@ def require_login(func):
             return redirect(url_for('login_route'))
     return wrapper
 
-# Ruta para /mi_cuenta
+def consulta_login(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        # Verificar si 'userid' está en la sesión o si la cookie 'logid' está presente y es válida
+        if 'userid' in session or request.cookies.get('logid'):
+            return func(*args, **kwargs)
+        else:
+            # El usuario no está autenticado, devolver un mensaje en formato JSON
+            return jsonify({'error': 'Usuario no logueado.'}), 401
+    return wrapper
+
 @app.route('/mi_cuenta')
 @require_login
 def mi_cuenta():
-    # Verificar si 'username' está en la sesión
-    if 'userid' in session:
-        # El usuario tiene una sesión activa, redirigir a /mi_cuenta
-        return render_template('cuenta.html')
-    else:
-        # El usuario no tiene una sesión activa, redirigir a la página de inicio (index)
-        return redirect(url_for('index'))
-
-
+    return render_template('cuenta.html')
+    
 @app.route('/login')
 def login_route():
-    # Verificar si ya hay una sesión activa
     if 'userid' in session:
         return redirect(url_for('index'))
     return render_template('login.html')
@@ -113,19 +117,14 @@ def confirmar_registro():
     cursor.close()
     conn.close()
 
-@app.route('/infocuentas', methods=['GET'])
-@require_login
-def infocuentas():
-    # Obtener el 'userid' de la sesión
-    user_id_from_session = session.get('userid')
 
-    # Verificar si 'userid' está presente en la sesión
+
+@app.route('/infocuentas', methods=['GET'])
+@consulta_login
+def infocuentas():
+    user_id_from_session = session.get('userid')
     if user_id_from_session:
-        # Si está presente, devolver la información de la cuenta
         return obtener_info_cuenta(user_id_from_session)
-    else:
-        # Si no está presente, redirigir a la página de inicio de sesión
-        return redirect(url_for('login_route'))
 
 @app.route('/avisos-por-filtro/<int:idfiltro>', methods=['GET'])
 def avisos_por_filtro(idfiltro):
@@ -190,13 +189,13 @@ def obtener_tiendas_destacadas():
 
 
 # Rutas para las páginas web
-@app.route('/inicio')
-def inicio():
-    return render_template('index.html')
+# @app.route('/inicio')
+# def inicio():
+#     return render_template('index.html')
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
 
 @app.route('/contacto')
 def contacto():
@@ -213,12 +212,8 @@ def tiendas():
 
 @app.route('/signin')
 def signin():
-    # Verificar si hay una sesión iniciada
-    if 'username' in session:
-        # El usuario ya está autenticado, redirigir a la página de inicio o a donde prefieras
-        return render_template('index.html')
-
-    # Si no hay una sesión iniciada, mostrar la página de registro
+    if 'userid' in session:
+        return redirect(url_for('index'))
     return render_template('signin.html')
 
 @app.route('/categorias')
@@ -245,10 +240,13 @@ def perfil_del_vendedor():
 def politicas_y_terminos():
     return render_template('politicas_y_terminos.html')
 
-# @app.route('/aviso')
-# def mostrar_aviso():
-#     id_aviso = request.args.get('id')
-#     return render_template('aviso.html')
+@app.route('/')
+def inicio():
+    return send_from_directory('rct/build', 'index.html')
+
+@app.route('/inicio')
+def index():
+    return send_from_directory('rct/build', 'index.html')
 
 @app.route('/rct')
 def prd():
@@ -257,6 +255,11 @@ def prd():
 @app.route('/rct/aviso/<int:idaviso>')
 def mostrar_aviso(idaviso):
     return send_from_directory('rct/build', 'index.html')   
+
+@app.route('/rct/cuenta')
+@require_login
+def rctcuenta():
+    return send_from_directory('rct/build', 'index.html')
 
 @app.route('/rct/terms')
 def terms():

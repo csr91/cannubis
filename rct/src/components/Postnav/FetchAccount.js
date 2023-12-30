@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Fetch.css';
 
 const FetchAccount = () => {
   const [nombre, setNombre] = useState('');
@@ -8,11 +9,14 @@ const FetchAccount = () => {
       try {
         const response = await fetch('/infocuentas');
         const data = await response.json();
-
-        // Actualizar el estado con el valor de 'direccion'
-        setNombre(data.nombre);
+        if (data.nombre) {
+          setNombre(data.nombre);
+        } else {
+          setNombre(<a href="/login" className="custom-link">Ingresá</a>);
+        }
       } catch (error) {
-        console.error('Error al obtener datos:', error);
+        // Manejar errores de la solicitud
+        setNombre(<a href="/login" className="custom-link">Ingresá</a>);
       }
     };
 

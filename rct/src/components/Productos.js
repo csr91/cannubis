@@ -2,8 +2,8 @@ import PriceFilter from './Left-column/PriceFilter';
 import Categorias from './Left-column/Categorias';
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar/Navbar';
-import './page-productos/d-productos.css';
-import './page-productos/m-productos.css';
+import './page-Productos/d-productos.css';
+import './page-Productos/m-productos.css';
 import LongBanners from './banners/longbanners/LongBanners';
 import Postnav from './Postnav/Postnav';
 import OrdenarPor from './main/OrdenarPor';
@@ -58,7 +58,6 @@ const Productos = () => {
                         <a href={`/rct/aviso/${producto.Idaviso}`}>
                           <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                           <p>{producto.Titulo}</p>
-                          <p>{producto.Descripcion}</p>
                           <p>${producto.Precio}</p>
                         </a>
                       </div>
@@ -69,8 +68,7 @@ const Productos = () => {
                       <div key={producto.Idaviso}>
                         <a href={`/rct/aviso/${producto.Idaviso}`}>
                           <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
-                          <p>{producto.Titulo}</p>
-                          <p>{producto.Descripcion}</p>
+                          <p >{producto.Titulo}</p>
                           <p>${producto.Precio}</p>
                         </a>
                       </div>
@@ -82,7 +80,6 @@ const Productos = () => {
                         <a href={`/rct/aviso/${producto.Idaviso}`}>
                           <img src={producto.Imagen1} alt={producto.Titulo} className="imagen-producto" />
                           <p>{producto.Titulo}</p>
-                          <p>{producto.Descripcion}</p>
                           <p>${producto.Precio}</p>                  
                         </a>
                       </div>

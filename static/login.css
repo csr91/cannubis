@@ -1,4 +1,4 @@
-@media (min-width: 195px) and (max-width: 801px) {
+@media (min-width: 195px) and (max-width: 801.999px) {
     body {
         font-family: Arial, sans-serif;
         background-color: rgb(202, 221, 197);
@@ -92,7 +92,7 @@
     }
 }
 
-@media (min-width: 802px) and (max-width: 2000px) {
+@media (min-width: 802px) and (max-width: 3000px) {
     body {
         font-family: Arial, sans-serif;
         background-color: #f2f2f2;

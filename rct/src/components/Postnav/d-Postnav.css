@@ -1,68 +1,78 @@
 @media (min-width: 802px) and (max-width: 3000px) {  
 .postnav {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    min-width: 1300px;
+width: 100%;
+display: flex;
+align-items: center;
+min-width: 1300px;
+}
+
+.custom-link {
+font-family: 'Rubik', sans-serif;
+text-decoration: none; 
+color: inherit;
+}
+
+.postnav-full-container {
+background-color: rgba(255, 255, 255, 1);
+padding: 0.2%;
+margin-right: 1px;
+border-radius: 1px; 
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+margin: auto;
+width: 100%;
 }
 
 .postnav-center-container {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 0.2%;
-    margin-right: 1px;
-    font-family: 'Rubik', sans-serif;
-    border-radius: 1px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    margin: auto;
-    width: 90%;
-    max-width: 1250px;
-  }
+background-color: rgba(255, 255, 255, 1);
+margin-right: 1px;
+font-family: 'Rubik', sans-serif;
+margin: auto;
+width: 90%;
+}
 
-  .postnav-content {
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-  }
+.postnav-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+text-align: center;
+}
 
-  .postnav-content-byfour {
-    align-items: center;
-    text-align: right;
-    width: 25%;
-    align-items: center;
-  }
+.postnav-content-byfour {
+align-items: center;
+text-align: right;
+width: 20%;
+align-items: center;
+}
 
-  .postnav-enviara {
-    justify-content: center;
-    display: flex;
-  }
+.postnav-enviara {
+justify-content: center;
+display: flex;
+}
 
-  .postnav-account {
-    justify-content: center;
-    display: flex;    
-  }
-  
-  .postnav-shopping-favs {
-    justify-content: center;
-    display: flex;
-  }
+.postnav-account {
+justify-content: center;
+display: flex;    
+}
 
-  .postnav-shopping-favs-content {
-    margin-right: 10%;
-  }
+.postnav-shopping-favs {
+justify-content: center;
+display: flex;
+}
 
-  .postnav-cart-bell {
-    justify-content: center;
-    display: flex;
-  }
-  
-  .postnav-cart-bell svg {
-    margin-right: 40px; /* Ajusta la cantidad de espacio entre los iconos según tus preferencias */
-  }
+.postnav-shopping-favs-content {
+margin-right: 10%;
+}
 
-  .m-postnav-center-lupa {
-    display: none;
-  }
+.postnav-cart-bell {
+justify-content: center;
+display: flex;
+}
+
+.postnav-cart-bell svg {
+margin-right: 40px; /* Ajusta la cantidad de espacio entre los iconos según tus preferencias */
+}
+
+.m-postnav-center-lupa {
+display: none;
+}
 }

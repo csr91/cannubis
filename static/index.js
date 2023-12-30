@@ -29,10 +29,12 @@ function scrollToTop() {
 
 document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.querySelector('.nav-toggle');
+  const nav1 = document.querySelector('.nav1');
   const navMenu = document.querySelector('.nav-menu');
   const cardContainer = document.querySelector('.card');
 
   navToggle.addEventListener('click', function() {
+    nav1.classList.toggle('show');
     navMenu.classList.toggle('show');
     cardContainer.classList.toggle('show');
   });
@@ -202,36 +204,3 @@ function obtenerTiendasAleatorias(tiendas, cantidad) {
 
   return tiendasAleatorias;
 }
-
-function showLoading() {
-  document.getElementById('loading').style.display = 'block';
-}
-
-function hideLoading() {
-  document.getElementById('loading').style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Mostrar el indicador de carga al hacer clic en cualquier enlace
-  var links = document.querySelectorAll('a');
-  links.forEach(function(link) {
-      link.addEventListener('click', showLoading);
-  });
-
-  // Ocultar el indicador de carga después de que la página se ha cargado completamente
-  window.addEventListener('load', hideLoading);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.getElementById("headerpc");
-
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 700) { // Cambia este valor según tu necesidad
-      header.classList.remove("opaque");
-      header.classList.add("trans");
-    } else {
-      header.classList.remove("trans");
-      header.classList.add("opaque");
-    }
-  });
-});

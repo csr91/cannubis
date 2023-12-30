@@ -7,10 +7,9 @@ import { faShoppingCart, faBell } from '@fortawesome/free-solid-svg-icons';
 import Toggle from '../toggle/Toggle';
 
 
-function Navbar() {
-  return (
-    <div class="header-background-center-color">    
-      <div className="nav-container">
+function IndexNavbar() {
+  return ( 
+      <div className="index-header-background-center-color">
         <div class="nav-center">
           <div class="nav-postcenter">
             <div className="d-nav-center-left">
@@ -42,8 +41,8 @@ function Navbar() {
           </div>
         </div>
       </div> 
-    </div>
+    
   );
 }
 
-export default Navbar;
+export default IndexNavbar;

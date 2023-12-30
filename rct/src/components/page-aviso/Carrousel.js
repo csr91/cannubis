@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import './carrousel.css'; // Asegúrate de tener un archivo CSS para estilos
+import './carrousel.css';
 
-const AvisoComponent = () => {
+const AvisoComponent = ({ id }) => {
   const [imagenes, setImagenes] = useState([]);
   const [imagenActualIndex, setImagenActualIndex] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/infoavisos/5');
+        const response = await fetch(`http://127.0.0.1:5000/infoavisos/${id}`);
         if (!response.ok) {
           throw new Error('Error al obtener los datos');
         }
         const data = await response.json();
 
-        // Filtra solo las imágenes no vacías
         const imagenesFiltradas = Object.values(data)
-          .filter(value => value && typeof value === 'string' && value.startsWith('https://'))
-        
+          .filter(value => value && typeof value === 'string' && value.startsWith('https://'));
+
         setImagenes(imagenesFiltradas);
       } catch (error) {
         console.error('Error:', error);
@@ -25,7 +24,7 @@ const AvisoComponent = () => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const cambiarImagen = (direccion) => {
     setImagenActualIndex((prevIndex) => {
